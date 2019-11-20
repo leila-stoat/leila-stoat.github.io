@@ -1,0 +1,35 @@
+html {
+  background-color: #fad;
+  color: #412;
+  font-family: Apple Chancery, cursive;
+  font-size: 12pt;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+body {
+  margin: 0 10em;
+  text-align: justify;
+}
+
+h1 {
+  color: #515;
+  font-size: 36pt;
+  font-weight: bold;
+  text-align: center;
+}
+
+a {
+  color: #827;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #c49;
+  font-weight: bold;
+}
+
+ul {
+  list-style-image: url("bulletheart.png");
+}
