@@ -11,7 +11,7 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="New Job" startnode="88" creator="Twine" creator-version="2.3.5" ifid="618A72E6-8012-4763-927B-B9C3721A5B16" zoom="0.6" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
+<tw-storydata name="New Job" startnode="88" creator="Twine" creator-version="2.3.5" ifid="618A72E6-8012-4763-927B-B9C3721A5B16" zoom="0.25" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
   background-color: #202;
   color: #fde;
 }
@@ -43,47 +43,47 @@ tw-link.visited {
 
 
 
-</script><tw-tag name="entertainer" color="green"></tw-tag>,<tw-tag name="babysitter" color="green"></tw-tag>,<tw-tag name="loser" color="green"></tw-tag><tw-passagedata pid="1" name="Lookin for a New Job" tags="" position="4140,1331" size="100,100">You have decided that you need to get a job to buy yourself a new PC.The new PC costs 500.000$.
-You looked for some job&#39;s on the internet on the side &quot;Sign and take the job&quot; and found:
+</script><tw-tag name="babysitter" color="green"></tw-tag>,<tw-tag name="entertainer" color="green"></tw-tag>,<tw-tag name="loser" color="green"></tw-tag>,<tw-tag name="hub" color="blue"></tw-tag><tw-passagedata pid="1" name="Lookin for a New Job" tags="hub" position="4140,1331" size="100,100">You have decided that you need to get a job to buy yourself a new PC that costs... $500,000.
 
-[[Looking for Babysitter-&gt;Babysitter Job Listings]]
-[[Looking for Lab Assistant-&gt;Lab Assistant Job Listings]]
-[[Looking someone at Disneyland-&gt;Disneyland Job Listings]]
-[[Looking for someone at the clothing store-&gt;Boutique Listings]]
-[[Looking for a model-&gt;Modeling Listings]]
-[[Looking for someone at the office-&gt;Office Listings]]
-[[Looking for an actor-&gt;Acting Listings]]
-[[Beg to your mother-&gt;Beg Mom]]
+You looked for some jobs on the internet on the site *Sign and Take The Job* and found:
 
-[[Take a Peek-&gt;Glimpses of your Future]] </tw-passagedata><tw-passagedata pid="2" name="Babysitter Job Listings" tags="" position="4142,832" size="100,100">You decided to find a job as a babysitter because, hey, they are little kids and babies no big deal, how hard could it be?
-You opened the side for looking for babysitter and found few:
+* [[Babysitter-&gt;Babysitter Job Listings]]
+* [[Lab Assistant-&gt;Lab Assistant Job Listings]]
+* [[Disney Entertainer-&gt;Disneyland Job Listings]]
+* [[Clothing Store-&gt;Boutique Listings]]
+* [[Model-&gt;Modeling Listings]]
+* [[Office-&gt;Office Listings]]
+* [[Actor-&gt;Acting Listings]]
 
-[[1.Looking for a babysitter for a 5 year old daughter-&gt;Young Child Babysitter]]
-[[2.Looking for a babysitter for a 13 year old daughter-&gt;Theresa&#39;s Babysitter]]
-[[3.Looking for a babysitter for a 18 year old daughter-&gt;Adult Babysitter]]
-[[4.Looking for a &quot;baby&quot; sitter-&gt;&quot;Baby&quot; Sitter]]</tw-passagedata><tw-passagedata pid="3" name="Young Child Babysitter" tags="" position="3880,621" size="100,100">You thought,she is 5,how can a 5 year old girl be hard for babysit!
-You didn&#39;t even read what it said about the job,you just pressed &quot;accept the job&quot; and you made you way to the address.
+(if:(history:) contains all of (a:&quot;Babysitter Job Listings&quot;, &quot;Lab Assistant Job Listings&quot;, &quot;Disneyland Job Listings&quot;, &quot;Boutique Listings&quot;, &quot;Modeling Listings&quot;, &quot;Office Listings&quot;, &quot;Acting Listings&quot;))[ [[Forget jobs, beg your mother!-&gt;Beg Mom]] ]</tw-passagedata><tw-passagedata pid="2" name="Babysitter Job Listings" tags="" position="4142,832" size="100,100">You decided to find a job as a babysitter because, hey, they are little kids and babies, no big deal, how hard could it be?
 
-Once you arrived,you rang on the door and a woman opened the door.You said that you took the job,she smiled and asked you:
+You opened the site in the babysitter jobs tab and found a few:
+
+0. [[Looking for a babysitter for a 5 year old daughter-&gt;Young Child Babysitter]]
+0. [[Looking for a babysitter for a 13 year old daughter-&gt;Theresa&#39;s Babysitter]]
+0. [[Looking for a babysitter for a 18 year old daughter-&gt;Adult Babysitter]]
+0. [[Looking for a baby sitter-&gt;&quot;Baby&quot; Sitter]]</tw-passagedata><tw-passagedata pid="3" name="Young Child Babysitter" tags="" position="3880,621" size="100,100">You thought: she is 5, how can a 5 year old girl be hard to babysit? You didn&#39;t even read what it said about the job, you just pressed &quot;accept the job&quot; and you made you way to the address.
+
+Once you arrived, you rang on the door and a woman opened it. You said that you took the job, she smiled and asked you:
+
 &quot;Great,but did you even read what it takes for the job?&quot;
 
 [[Yes!-&gt;Emily&#39;s Babysitter]]
-[[No.-&gt;Babysitter Job Choice]]</tw-passagedata><tw-passagedata pid="4" name="Emily&#39;s Babysitter" tags="babysitter" position="3741,162" size="100,100">Of course you didn&#39;t read it so you just said yes.
+[[No.-&gt;Babysitter Job Choice]]</tw-passagedata><tw-passagedata pid="4" name="Emily&#39;s Babysitter" tags="babysitter" position="3741,162" size="100,100">Of course you didn&#39;t read it, but you just said &quot;Yes.&quot;
 
-&quot;Great!Then come in.&quot;Said the women as you came in.First of all my name is Tina.Since you read it,and I saw you didn&#39;t bring anything I guess you would like to wear my dresses.
+&quot;Great! Then come in.&quot; Said the woman. &quot;First of all my name is Tina. Since you read it and I saw you didn&#39;t bring anything, I guess you would like to wear my dresses.&quot;
 
-&quot;What?&quot;You said in shock,because you don&#39;t know what she is talking.
+&quot;What?&quot; You said, in shock, because you didn&#39;t know what she was talking about.
 
-&quot;Well,since you read what it takes for the job you know that I was looking for a lady who would take care of my little daughter Emily.She loves to make tea parties!&quot;
+&quot;Well, *since you read what it takes for the job*, you know that I was looking for a lady who would take care of my little daughter Emily. She loves to have tea parties!&quot;
 
-&quot;Ohh,that!Of course I know about that after all I read it!&quot; (of course you didn&#39;t)
+&quot;Ohh, that... Of course I know about that after all I read it!&quot; *(of course you didn&#39;t)*
 
-&quot;Great then!Let&#39;s sign the contract and give you a pretty makeover!&quot;
+&quot;Great, then! Let&#39;s sign the contract and give you a pretty makeover!&quot;
 
-You sign the contract,got your new makeover your outfit for today,when you were Tina introduced you with Emily.
+You signed the contract, got your new makeover, your outfit for the day, and when you were ready Tina introduced you to Emily.
 
-&quot;Here sweety this is your new babysitter Ema she will take care of you when I am not at home,have fun ladies,I am late for work see you tonight sweety!&quot;
-
+&quot;Here sweety, this is your new babysitter Ema, she will take care of you when I am not at home. Have fun, ladies, I am late for work. See you tonight, sweety!&quot;
 
 &#39;&#39;Your boss:&#39;&#39; Tina
 &#39;&#39;Your job name:&#39;&#39; Emma
@@ -91,27 +91,28 @@ You sign the contract,got your new makeover your outfit for today,when you were 
 &#39;&#39;Contract time:&#39;&#39; 5 years + 5 more years if Emily wants it
 &#39;&#39;Salary:&#39;&#39; 15.000$ per month
 
-&lt;img src=&quot;img/newjob/1-1-1.jpg&quot; /&gt;</tw-passagedata><tw-passagedata pid="5" name="Babysitter Job Choice" tags="" position="3966,399" size="100,100">You decided to be honest and said no
+&lt;img src=&quot;img/newjob/1-1-1.jpg&quot; /&gt;
 
-The women smiled &quot;At least you are honest I like that! I was looking for a young lady to babysit my daughter Emily,since you can&#39;t take care of her,and you look like a great person I have other jobs for you!&quot;
+(show: ?retry)</tw-passagedata><tw-passagedata pid="5" name="Babysitter Job Choice" tags="" position="3966,399" size="100,100">You decided to be honest and said &quot;No...&quot;
 
-&quot;Really?&quot; You ware surprised by that.
+The woman smiled. &quot;At least you are honest, I like that! I was looking for a young lady to babysit my daughter Emily, but since you can&#39;t take care of her, and you look like a great person, I have other jobs for you!&quot;
 
-&quot;Yes,now you can still do something with Emily,or do something with my sister Jayne who is living next door.So,which one you choose?&quot;
+&quot;Really?&quot; You were surprised by that.
 
-[[Emily-&gt;Emily&#39;s Doll]]
-[[Jayne-&gt;Jayne&#39;s Baby Girl]]</tw-passagedata><tw-passagedata pid="6" name="Emily&#39;s Doll" tags="babysitter" position="3865,161" size="100,100">You decided to take a job as Emily&#39;s...
+&quot;Yes, now you can still do something with Emily, or do something with my sister Jayne who is living next door. Which one do you choose?&quot;
+
+[[Work with Emily-&gt;Emily&#39;s Doll]]
+[[Work for Jayne-&gt;Jayne&#39;s Baby Girl]]</tw-passagedata><tw-passagedata pid="6" name="Emily&#39;s Doll" tags="babysitter" position="3865,161" size="100,100">You decided to take a job as Emily&#39;s...
 
 &quot;DOLL!?&quot; You said shocked.
 
-&quot;Great,you are gonna be her new doll! Don&#39;t worry you will do great, and I will pay you more, so you won&#39;t regret it I promise you! Ohhh I didn&#39;t introduce myself! I am Tina. Come in!&quot; Said Tina, as you went in.
+&quot;Great, you are gonna be her new doll! Don&#39;t worry you will do great, and I also will pay you more, so you won&#39;t regret it, I promise you! Ohhh, I didn&#39;t introduce myself! I am Tina. Come in!&quot; Said Tina, as you went in.
 
 &quot;Now let&#39;s sign the contract and give you a makeover!&quot;
 
 So you sign the contract and got your new makeover and outfit. After that, she presented Emily to her new &quot;doll&quot;.
 
-&quot;Sweety this is your new doll Little Miss Emma. Hope you will like her!&quot;
-
+&quot;Sweety, this is your new doll Little Miss Emma. I hope you will like her!&quot;
 
 &#39;&#39;Your boss:&#39;&#39; Tina/Emily
 &#39;&#39;Your job name:&#39;&#39; Little Miss Emma
@@ -119,16 +120,17 @@ So you sign the contract and got your new makeover and outfit. After that, she p
 &#39;&#39;Contract time:&#39;&#39; 10 years
 &#39;&#39;Salary:&#39;&#39; 17.500$ per month
 
-&lt;img src=&quot;img/newjob/1-1-2-1.jpg&quot; /&gt;</tw-passagedata><tw-passagedata pid="7" name="Jayne&#39;s Baby Girl" tags="babysitter" position="3990,161" size="100,100">You decided to take the job as Jayne&#39;s...
+&lt;img src=&quot;img/newjob/1-1-2-1.jpg&quot; /&gt;
 
-&quot;Great!She always wanted to have a baby girl,but never got the chance,so you will gonna be her baby!Don&#39;t worry I will pay you more!&quot;
+(show: ?retry)</tw-passagedata><tw-passagedata pid="7" name="Jayne&#39;s Baby Girl" tags="babysitter" position="3990,161" size="100,100">You decided to take the job as Jayne&#39;s...
 
-So you went in sign the contract got a makeover,outfit and a diaper,and went next door the your new mommy,Jayne.
+&quot;Great! She always wanted to have a baby girl, but never got the chance, so you will be her baby! Don&#39;t worry, I will pay you more!&quot;
 
-&quot;Dear sis,this is your new baby girl Lucy,I know that you are gonna be the best mommy ever for her!&quot;
+So you went in and signed the contract, got a makeover, an outfit and a diaper, and went next door to your new mommy, Jayne.
 
-The women left you,as you was dragged into your new house by Jayne,as you felt a urge to pee...
+&quot;Dear sis, this is your new baby girl Lucy! I know that you are gonna be the best mommy ever for her!&quot;
 
+The woman left you, as you were dragged into your new house by Jayne, and you felt a sudden urge to pee...
 
 &#39;&#39;Your boss:&#39;&#39; Tina/Jayne
 &#39;&#39;Your job name:&#39;&#39; Lucy
@@ -136,21 +138,23 @@ The women left you,as you was dragged into your new house by Jayne,as you felt a
 &#39;&#39;Contract time:&#39;&#39; 15 years
 &#39;&#39;Salary:&#39;&#39; 21.500$ per month
 
+&lt;img src=&quot;img/newjob/1-1-2-2.jpg&quot; /&gt;
 
-&lt;img src=&quot;img/newjob/1-1-2-2.jpg&quot; /&gt;</tw-passagedata><tw-passagedata pid="8" name="Theresa&#39;s Babysitter" tags="babysitter" position="4123,162" size="100,100">You thought,she isn&#39;t that young or that old to be hard to babysit.
-In the description for the job it said that she love&#39;s to play house and if you do this you will get a bonus!Great!you thought as you pressed &quot;accept the job&quot; and you made you way to the address.
+(show: ?retry)</tw-passagedata><tw-passagedata pid="8" name="Theresa&#39;s Babysitter" tags="babysitter" position="4123,162" size="100,100">You thought she wasn&#39;t that young or that old to be hard to babysit.
 
-Once there,you rang on the door and a woman opened the door.
+In the description for the job it said that she loves to play house and if you do this you will get a bonus! &quot;Great!&quot; you thought, as you pressed &quot;accept the job&quot; and you made you way to the address.
 
-&quot;You must be the new babysitter!Nice to meet you I am Linda come in!&quot;She said as you entered the house.
+Once there, you rang on the door and a woman opened the door.
 
-&quot;Well since you read that my daughter Theresa loves to play house I will play that extra since I am almost everyday way away,so sometimes you have to stay in this house.Well let&#39;s sign the contract,and then you can meet Theresa in her room!&quot;You sign the contract as Linda left the house.&quot;And by the way don&#39;t worry Theresa is good in makeover&#39;s!&quot;Said Linda with a smile as she closed the door.
+&quot;You must be the new babysitter! Nice to meet you, I am Linda! Come in!&quot; She said as you entered the house.
+
+&quot;Well, since you read that my daughter Theresa loves to play house, I will pay that extra since I am almost everyday away, so sometimes you have to stay in this house. Well let&#39;s sign the contract, and then you can meet Theresa in her room!&quot; You sign the contract as Linda left the house. &quot;And by the way, don&#39;t worry, Theresa is great in makeovers!&quot; Said Linda, with a smile as she closed the door.
 
 You then made you way to Theresa&#39;s room,once there you said that you are her new babysitter.
 
-&quot;Really!Great let&#39;s play house you are gonna be the mommy and I am gonna be your daughter!&quot;Said Theresa with joy!&quot;But first we have to give you a makeover and a dress Mommy Bunny!&quot;
-Great you said (only because of that bonus that you will get).
+&quot;Really! Great, let&#39;s play house! You are gonna be the mommy and I am gonna be your daughter!&quot; Said Theresa with joy! &quot;But first we have to give you a makeover and a dress, Mommy Bunny!&quot;
 
+&quot;Great...&quot; you said *(only because of that bonus that you will get...)*
 
 &#39;&#39;Your boss:&#39;&#39; Linda
 &#39;&#39;Your job name:&#39;&#39; Mommy Bunny
@@ -158,23 +162,34 @@ Great you said (only because of that bonus that you will get).
 &#39;&#39;Contract time:&#39;&#39; 3 years
 &#39;&#39;Salary:&#39;&#39; 13.500$ per month + 100 bonus for every house play
 
-&lt;img src=&quot;img/newjob/1-2.jpg&quot; /&gt;</tw-passagedata><tw-passagedata pid="9" name="Adult Babysitter" tags="" position="4359,632" size="100,100">First of all you didn&#39;t know why an 18 year old would need a babysitter,and second of all she is a hot 18 year old!Maybe she could your girlfriend! (just kidding).
+&lt;img src=&quot;img/newjob/1-2.jpg&quot; /&gt;
+
+(show: ?retry)</tw-passagedata><tw-passagedata pid="9" name="Adult Babysitter" tags="" position="4359,632" size="100,100">First of all, you didn&#39;t know why an 18 year old would need a babysitter, but second of all: she is a hot 18 year old! Maybe she could your girlfriend! *(just kidding... or not!)*
+
 You pressed &quot;accept the job&quot; and you made you way to the address.
 
-Once there you noticed one thing,this was not a house it was a mansion!A big one as well,you saw a swimming pool and in the garage you saw a maserati and a lamborghini.You was close to pass out,as a woman in an armani suit came at you.
+Once there you noticed one thing: this was not a house, it was a mansion! A big one as well, you saw a swimming pool in the yard and in the garage you saw a Maserati and a Lamborghini. You were close to pass out as a woman in an Armani suit came at you.
 
-&quot;Hello there young man!You must be the new babysitter,nice to meet you I am Mrs. Sky,you can call me Rebecca.Come,follow me.&quot;Said Rebecca as you two went in the mansion.
+&quot;Hello there, young man! You must be the new babysitter, nice to meet you. I am Mrs. Sky, you can call me Rebecca. Come,follow me.&quot; Said Rebecca, as you two went in the mansion.
 
-&quot;Well,my daughter Layla may be 18 but acts like an little brat.I want you to take good care after her as an nanny,she is tricky,she might offer you more money or something else,be careful!I will join my husband on our business trip in China,and we will be back in 1 year,your salary would be 100.000 per month.So I have to go,see ya!&quot;Said Rebecca as she closed the door,as you heard someone speaking to you.
+&quot;Well, my daughter Layla may be 18 but acts like a little brat, so I want you to take good care after her as an nanny. She is tricky, she might offer you more money or something else, be careful! I will join my husband in our business trip in China and we will be back in 1 year. Your salary will be $100.000 per month. Now, I have to go, see ya!&quot; Said Rebecca, as she closed the door.
 
-&quot;So my mom already told you that I am tricky,I&#39;m not!I just don&#39;t like that she treats me like a little baby,so I will cut you a deal,you can do as you are told and be my nanny,or you can be my...&quot;You can Layla of as you said BOYFRIEND!&quot;Well,no silly I meant girlfriend!I think you would be cute and sexy that way!I also will give you 50.000 over what my mom gives you,so choose my love!&quot;Said Layla as you choose:
+Then you heard someone speaking to you.
 
+&quot;So, my mom already told you that I am tricky... I&#39;m not, though! I just don&#39;t like that she treats me like a little baby, so I will cut you a deal: you can do as you are told and be my *nanny*, or you can be my...&quot;
 
-[[1.Nanny-&gt;The Nanny]]
-[[2.Girlfriend-&gt;The Girlfriend]]</tw-passagedata><tw-passagedata pid="10" name="&quot;Baby&quot; Sitter" tags="loser" position="4538,159" size="100,100">Well it didn&#39;t say anything about what to babysit it only said it was well paid, so you decided to go with that.
+&quot;Boyfriend?&quot; You say, but Layla quickly corrects you.
+
+&quot;Well, no silly... my girlfriend! I think you would be cute and sexy that way! I also will give you $50.000 over what my mom gives you, so choose wisely, my love!&quot; Said Layla, as you choose:
+
+[[Be a nanny-&gt;The Nanny]]
+[[Be a girlfriend-&gt;The Girlfriend]]</tw-passagedata><tw-passagedata pid="10" name="&quot;Baby&quot; Sitter" tags="loser" position="4534,159" size="100,100">Well it didn&#39;t say anything about what you&#39;d babysit it only said it was well paid, so you decided to go with that.
+
 You pressed &quot;accept the job&quot; and made your way to the address.
-Once there you rang on the door bell, as soon as you rang it, some smoke came from it which made you fall asleep.
-Few hours later you waked up and realized two things first you were a little tied up and second you now know what you have to babysit.
+
+Once there you rang on the door bell, and as soon as you rang it, some smoke came out from it which made you fall asleep.
+
+Few hours later, you waked up and realized two things: first, you were a little tied up; and second you now know *what* you have to babysit...
 
 &#39;&#39;Your Boss:&#39;&#39; ??
 &#39;&#39;Your Job Name:&#39;&#39; ??
@@ -184,12 +199,11 @@ Few hours later you waked up and realized two things first you were a little tie
 
 &lt;img src=&quot;img/newjob/1-4.gif&quot; /&gt;
 
-[[Better Luck Next Time?-&gt;Lookin for a New Job]]</tw-passagedata><tw-passagedata pid="11" name="The Nanny" tags="babysitter" position="4250,165" size="100,100">Layla mad you a great offer but you didn&#39;t want to break the promise you gave Mrs. Sky,since she also let you live here!So you turned down her offer.
+(replace: ?retry)[[[Better luck next time?-&gt;Lookin for a New Job]]]</tw-passagedata><tw-passagedata pid="11" name="The Nanny" tags="babysitter" position="4250,165" size="100,100">Layla made you a great offer but you didn&#39;t want to break the promise you gave Mrs. Sky, since she also was letting you live here! So you turned down her offer.
 
-&quot;Well to bad,that means I will stay single at the moment,to bad.Oh by the way mom didn&#39;t gave you your uniform,let me get it for you and give you your makeover and your job name is Sissy just to know.&quot;
+&quot;Well, too bad! That means I will stay single at the moment, good grief... Oh, by the, way mom didn&#39;t give you your uniform, let me get it for you and give you your makeover... and your job name is Sissy, just to know.&quot;
 
-You didn&#39;t know that there were one (spoiler:there were none).
-
+You didn&#39;t know that there were a uniform, or a makeover, or a new name... ( spoiler: there actually were none... until now)
 
 &#39;&#39;Your boss:&#39;&#39; Rebecca
 &#39;&#39;Your job name:&#39;&#39; Sissy
@@ -197,21 +211,25 @@ You didn&#39;t know that there were one (spoiler:there were none).
 &#39;&#39;Contract time:&#39;&#39; 1 years
 &#39;&#39;Salary:&#39;&#39; 100.000$ per month
 
+&lt;img src=&quot;img/newjob/1-3-1.jpg&quot; /&gt;
 
-&lt;img src=&quot;img/newjob/1-3-1.jpg&quot; /&gt;</tw-passagedata><tw-passagedata pid="12" name="The Girlfriend" tags="babysitter" position="4394,160" size="100,100">Layla mad you a great offer but you didn&#39;t want to break the promise you gave Mrs. Sky,since she also let you live here!So you turned down her offer.
+(show: ?retry)</tw-passagedata><tw-passagedata pid="12" name="The Girlfriend" tags="babysitter" position="4394,160" size="100,100">Layla made you a great offer but you didn&#39;t want to break the promise you gave Mrs. Sky, since she was also letting you live here! So you turned down her offer.
 
-&quot;I let you drive the lamborghini!&quot;Said Layla as you changed your mind and said &quot;DEAL!&quot;.Sweet!Now you have a girlfriend,live in a mansion,drive a lamborghini and get paid for it,can there be something bad?
+&quot;I&#39;ll let you drive the Lamborghini~!&quot; said Layla.
 
-&quot;Time to dress and give my new girlfriend a new makeover come,let&#39;s get in my room,or should I say our room Allie,after this we go shopping!Of course you can drive the lamborghini!&quot;
+You instantly changed your mind and said &quot;DEAL!&quot; Sweet! Now you have a girlfriend, live in a mansion,d rive a Lamborghini and get paid for it, can there be a downside to that?
+
+&quot;Time to dress up and give my new girlfriend a new makeover. Come, let&#39;s get in my room... or should I say, *our* room, Allie. After this, we go shopping! Of course, as I said, you can drive the Lamborghini!&quot;
 
 &#39;&#39;Your boss:&#39;&#39; Rebecca/Layla
 &#39;&#39;Your job name:&#39;&#39; Allie
 &#39;&#39;Your job:&#39;&#39; Girlfriend of Layla
-&#39;&#39;Contract time:&#39;&#39; 1 years
+&#39;&#39;Contract time:&#39;&#39; 1 year
 &#39;&#39;Salary:&#39;&#39; 100.000$ per month + 50.000 from Layla
 
+&lt;img src=&quot;img/newjob/1-3-2.jpg&quot; /&gt;
 
-&lt;img src=&quot;img/newjob/1-3-2.jpg&quot; /&gt;</tw-passagedata><tw-passagedata pid="13" name="Lab Assistant Job Listings" tags="" position="5688,782" size="100,100">You thought to yourself that this could be fun and much paid as well.
+(show: ?retry)</tw-passagedata><tw-passagedata pid="13" name="Lab Assistant Job Listings" tags="" position="5688,782" size="100,100">You thought to yourself that this could be fun and much paid as well.
 As you entered the side for Lab assistant there were only one &quot;Dr. Kobi needs lab assistant&#39;s&quot; but still decided to take it.You pressed &quot;accept the job and made your way to the address.
 
 Once arrived you rang on the door and Dr. Kobi opened the door.
@@ -1027,7 +1045,7 @@ PC here I come!
 
 &lt;img src=&quot;img/newjob/8-3.jpg&quot; /&gt;
 
-(replace: ?retry)[Try again, harder?]</tw-passagedata><tw-passagedata pid="80" name="Sailor" tags="" position="3724,3300" size="100,100">&quot;Great! You are gonna be a sailor!&quot; Said your uncle as he went to get your uniform.
+(replace: ?retry)[[[Try again, harder?-&gt;Lookin for a New Job]]]</tw-passagedata><tw-passagedata pid="80" name="Sailor" tags="" position="3724,3300" size="100,100">&quot;Great! You are gonna be a sailor!&quot; Said your uncle as he went to get your uniform.
 Once he was back you weren&#39;t so pleased with the uniform as he gave it to you.
 
 &quot;Well, there were no male uniform in your size, but this one will do it! If you refuse to wear it I will trow you off the ship, understand, Maria?&quot; Said your uncle as you put on your new uniform and went to get your new makeover.
@@ -1149,7 +1167,7 @@ You couldn&#39;t believe it! You only wanted a better PC now you have a own plan
 * |Loser1&gt;[????]
 * |Loser2&gt;[????]
 ----
-(link-undo: &quot;Get back to your job seeking!&quot;)
+(link-undo: &quot;Stop daydreaming and get back to your job seeking!&quot;)
 
 (if: (history:) contains &quot;Emily&#39;s Babysitter&quot;)[(replace: ?Babysitter1)[[[Emma-&gt;Emily&#39;s Babysitter]]]]
 (if: (history:) contains &quot;Emily&#39;s Doll&quot;)[(replace: ?Babysitter2)[[[Little Miss Emma-&gt;Emily&#39;s Doll]]]]
@@ -1159,14 +1177,14 @@ You couldn&#39;t believe it! You only wanted a better PC now you have a own plan
 (if: (history:) contains &quot;The Girlfriend&quot;)[(replace: ?Babysitter6)[[[Allie-&gt;The Girlfriend]]]]
 
 (if: (history:) contains &quot;\&quot;Baby\&quot; Sitter&quot;)[(replace: ?Loser1)[[[?????-&gt;&quot;Baby&quot; Sitter]]]]
-(if: (history:) contains &quot;Poopsie&quot;)[(replace: ?Loser2)[[[Poopsie]]]]
-</tw-passagedata><tw-passagedata pid="88" name="Intro" tags="" position="4149,1526" size="100,100">The following game a &quot;Choose Your Own Adventure&quot; story of fantasy with themes of transformation and submission. It was written by [[KioHoci-&gt;http://kiohoci.deviantart.com]] as a series of DeviantART posts, and ported by me into a Twine experience with some tweaks and adjustments to the text made *post hoc*.
+(if: (history:) contains &quot;Poopsie&quot;)[(replace: ?Loser2)[ [[Poopsie]] ]
+</tw-passagedata><tw-passagedata pid="88" name="Intro" tags="" position="4149,1522" size="100,100">The following game is a *Choose Your Own Adventure*-style story of fantasy with themes of transformation and submission. It was written by &lt;a href=&quot;http://kiohoci.deviantart.com&quot;&gt;KioHoci&lt;/a&gt; as a series of DeviantART posts, and ported by me into a Twine experience with some tweaks and adjustments to the text made *post hoc*.
 
 [[Have fun!-&gt;Lookin for a New Job]]</tw-passagedata><tw-passagedata pid="89" name="Sidebar" tags="header" position="3956,1642" size="100,100">(append: ?sidebar)[
-|retry&gt;[ [[Look for another job-&gt;Lookin for a New Job]] ]
+|retry)[ [[Look for another job-&gt;Lookin for a New Job]] ]
 
 |gallery&gt;[ [[Glimpses of your Future]] ]
-]</tw-passagedata><tw-passagedata pid="90" name="[Poopsie" tags="" position="3978,1279" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
+]</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
