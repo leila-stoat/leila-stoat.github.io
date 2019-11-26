@@ -11,7 +11,7 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="The Panty Raider" startnode="1" creator="Twine" creator-version="2.3.5" ifid="15232490-66F1-42FA-ADB2-814A4072E4E2" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="hub" color="purple"></tw-tag>,<tw-tag name="ending" color="green"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="400,199" size="100,100">For greater glory all across campus, you have decided to take part in the *Great Panty Raid Challenge*. As agreed across all factions involved, you are informed of the rules of the raid before you begin:
+<tw-storydata name="The Panty Raider" startnode="1" creator="Twine" creator-version="2.3.5" ifid="15232490-66F1-42FA-ADB2-814A4072E4E2" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="ending" color="green"></tw-tag>,<tw-tag name="hub" color="purple"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="400,199" size="100,100">For greater glory all across campus, you have decided to take part in the *Great Panty Raid Challenge*. As agreed across all factions involved, you are informed of the rules of the raid before you begin:
 
 0. The objective is to purloin one piece of underwear (panties) from each of the marked houses in the female dorm district and return.
 0. Returning with less loot than expected will have you deemed a loser.
@@ -19,7 +19,7 @@
 
 With all that in mind, you have prepared yourself to sneak into rooms and steal panties through out the whole Spring Break. You are ready!
 
-[[Head for the Female Dorm District-&gt;The Dorm Hub]]</tw-passagedata><tw-passagedata pid="2" name="The Dorm Hub" tags="hub" position="399,340" size="100,100">*Here the player selects their next destination.*
+[[Head for the Female Dorm District-&gt;The Dorm Hub]]</tw-passagedata><tw-passagedata pid="2" name="The Dorm Hub" tags="hub" position="500,344" size="100,100">*Here the player selects their next destination.*
 
 0. |claire&gt;[ [[Claire&#39;s Dorm]] ]
 0. Coming Soon
@@ -30,9 +30,10 @@ With all that in mind, you have prepared yourself to sneak into rooms and steal 
 0. Coming Soon
 0. Coming Soon
 
-(if: length of $panties &gt; 0)[ [[Return Home-&gt;Home]] ]
+(if: length of $panties == 8) [ [[Return triumphantly with your Haul-&gt;Red Handed]] ]
+(if: length of $panties &gt; 0)[ [[Return with your Haul-&gt;Home]] ]
 
-(if: $panties contains &quot;Claire&quot;)[(replace: ?claire)[&quot;Claire&#39;s Dorm&quot;]]</tw-passagedata><tw-passagedata pid="3" name="Claire&#39;s Dorm" tags="" position="300,501" size="100,100">Claire&#39;s dorm is in the first floor, giving you an easy way in.
+(if: $panties contains &quot;Claire&quot;)[(replace: ?claire)[&quot;Claire&#39;s Dorm&quot;]]</tw-passagedata><tw-passagedata pid="3" name="Claire&#39;s Dorm" tags="" position="400,500" size="100,100">Claire&#39;s dorm is in the first floor, giving you an easy way in.
 
 Her room is very tidy and organized, probably not a place where finding a pair of panties would be hard at all.
 
@@ -46,50 +47,94 @@ The closet on the side has a |closet&gt;[pair of doors] as well as a few |jackpo
 
 (click: ?bed)[
 (set: $turns to it + 1)
-(append: ?report)[You look under the bed, but all you find are socks. Used socks. You didn&#39;t peg Claire to be this much of a slob...]
+(append: ?report)[
+	You look under the bed, but all you find are socks. Used socks. You didn&#39;t peg Claire to be this much of a slob...]
 ]
 
 (click: ?cushions)[
 (set: $turns to it + 1)
-(append: ?report)[Rummaging through the cushions, you find a small chest filled with money. Neat! (But you won&#39;t actually pick it up, stealing is not part of the challenge!)]
+(append: ?report)[
+Rummaging through the cushions, you find a small chest filled with money. Neat! (But you won&#39;t actually pick it up, stealing is not part of the challenge!)]
 ]
 
 (click: ?chest)[
 (set: $turns to it + 1)
-(append: ?report)[Inside the chest are nothing but stuffed toys and china dolls. Is this girl a collector, or just refuses to let go of her childhood treasures?]
+(append: ?report)[
+Inside the chest are nothing but stuffed toys and china dolls. Is this girl a collector, or just refuses to let go of her childhood treasures?]
+]
+
+(click: ?vanity)[
+(set: $turns to it + 1)
+(append: ?report)[
+The vanity drawers are filled with jewelry and accessories. Accidentally, you bump into |secret&gt;[a hollow panel] in the depths of a drawer...]
+]
+
+(click: ?secret)[
+(set: $turns to it + 1)
+(append: ?report)[
+You manage to dislodge the fake panel and find a box with lovely decorations painted on its lid. Inside, there are sex toys.
+
+Well, that was a pleasant surprise!]
+]
+
+(click: ?case)[
+(set: $turns to it + 1)
+(append: ?report)[
+Inside the make-up case there is... make-up. Are you really sure you should be wasting your time looking in weird places like this?]
+]
+
+(click: ?closet)[
+(set: $turns to it + 1)
+(append: ?report)[
+Claire&#39;s clothes are hung inside the closet, all treading the boundaries between girly and practical. Nothing less than expected from the resident Pixie Manic Girl...]
 ]
 
 (click: ?jackpot)[
 (set: $turns to it + 1)
-(append: ?report)[Opening the closet drawers, you find... *a pair of pink frilly panties with white heart print!* Jackpot!]
+(append: ?report)[
+Opening the closet drawers, you find... *a pair of pink frilly panties with white heart print!* Jackpot!]
 (show: ?exit)
 (set: $panties to it + (a: &quot;Claire&quot;))
 ]
 
-(click: ?exit)[(if: $turns &gt; 3)[(goto: &quot;Caught By Claire&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]</tw-passagedata><tw-passagedata pid="4" name="Home" tags="" position="399,716" size="100,100">You enter the house where the bros that would act as the judges for your Challenge were awaiting you. You
+(click: ?exit)[(if: $turns &gt; 3)[(goto: &quot;Caught By Claire&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]</tw-passagedata><tw-passagedata pid="4" name="Home" tags="" position="802,344" size="100,100">You enter the house where the bros that would act as the judges for your Challenge were awaiting you. Almost trembling with excitement, you dump the load of panties on the center table. Everyone at once starts counting mentally in heir heads...
 
 (if: length of $panties &lt; 8)[
 (set: $panties_number to length of $panties)
 &quot;... $panties_number? Are you kidding me?&quot; The broest of them say, confronting you. &quot;That won&#39;t do, loser. You knew of the consequences, so you&#39;ll be handed off... to be punished.&quot;
 ]</tw-passagedata><tw-passagedata pid="5" name="Game Setup" tags="startup" position="202,199" size="100,100">(set: $turns to 0)
-(set: $panties to (a:))</tw-passagedata><tw-passagedata pid="6" name="Caught By Claire" tags="" position="802,204" size="100,100">Suddenly, the lights go on.
+(set: $panties to (a:))</tw-passagedata><tw-passagedata pid="6" name="Caught By Claire" tags="" position="188,502" size="100,100">Suddenly, the lights go on.
 
 &quot;My, oh my...&quot; Claire is standing at the boundary of her door, looking at you with a wicked smile that did not match her adorable girly looks. &quot;Looks like someone is doing the Panty Raid once again... to think I&#39;d have the honor of catching a loser!&quot;
 
 She laughed to herself, calmly making her way toward you. You eyed the window, with one thought in your head...
 
 [[Get out of there-&gt;Coward Sissy]]
-[[Take it like a man-&gt;Proud Sissy]]</tw-passagedata><tw-passagedata pid="7" name="Coward Sissy" tags="ending" position="717,377" size="100,100">&quot;Not so fast, sissy boy.&quot; She quickly bounds over the distance between you and the window, pulling it shut. &quot;You know the rules. Try to escape and you&#39;ll not only be known as a loser, but also a coward.&quot;
+[[Take it like a man-&gt;Proud Sissy]]</tw-passagedata><tw-passagedata pid="7" name="Coward Sissy" tags="ending" position="46,561" size="100,100">&quot;Not so fast, sissy boy.&quot; She quickly bounds over the distance between you and the window, pulling it shut. &quot;You know the rules. Try to escape and you&#39;ll not only be known as a loser, but also a coward.&quot;
 
 &quot;For that... well, I won&#39;t hold down. When I&#39;m done with you, you&#39;ll be known for what you are...&quot;
 
 &lt;img src=&quot;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3ebe4785-a3b6-46be-89d1-41d731921500/dcosnh3-75061a8c-812b-4249-8721-e92a1103bde5.jpg/v1/fill/w_1024,h_820,q_75,strp/outfit_design_75_by_hinayui_dcosnh3-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODIwIiwicGF0aCI6IlwvZlwvM2ViZTQ3ODUtYTNiNi00NmJlLTg5ZDEtNDFkNzMxOTIxNTAwXC9kY29zbmgzLTc1MDYxYThjLTgxMmItNDI0OS04NzIxLWU5MmExMTAzYmRlNS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.7vBF96djiwVHiMH6spoZVJWKEY_ur_LCP24fgC6mYV4&quot; height=&quot;400&quot;/&gt;
 
-&quot;...a wimpy sissy!&quot;</tw-passagedata><tw-passagedata pid="8" name="Proud Sissy" tags="ending" position="890,376" size="100,100">&quot;Not going to try and run away?&quot; She said, smiling. &quot;Good boy. You&#39;re a proud one, ready to take the punishment you deserve...&quot;
+&quot;...a wimpy sissy!&quot;</tw-passagedata><tw-passagedata pid="8" name="Proud Sissy" tags="ending" position="206,656" size="100,100">&quot;Not going to try and run away?&quot; She said, smiling. &quot;Good boy. You&#39;re a proud one, ready to take the punishment you deserve...&quot;
 
-&lt;img src=&quot;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3ebe4785-a3b6-46be-89d1-41d731921500/dcosnh3-75061a8c-812b-4249-8721-e92a1103bde5.jpg/v1/fill/w_1024,h_820,q_75,strp/outfit_design_75_by_hinayui_dcosnh3-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODIwIiwicGF0aCI6IlwvZlwvM2ViZTQ3ODUtYTNiNi00NmJlLTg5ZDEtNDFkNzMxOTIxNTAwXC9kY29zbmgzLTc1MDYxYThjLTgxMmItNDI0OS04NzIxLWU5MmExMTAzYmRlNS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.7vBF96djiwVHiMH6spoZVJWKEY_ur_LCP24fgC6mYV4&quot; height=&quot;400&quot;/&gt;
+&lt;img src=&quot;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3ebe4785-a3b6-46be-89d1-41d731921500/dcosonk-55e54020-c11c-4996-99e7-dc582d6318a1.jpg/v1/fill/w_1024,h_820,q_75,strp/outfit_design_81_by_hinayui_dcosonk-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODIwIiwicGF0aCI6IlwvZlwvM2ViZTQ3ODUtYTNiNi00NmJlLTg5ZDEtNDFkNzMxOTIxNTAwXC9kY29zb25rLTU1ZTU0MDIwLWMxMWMtNDk5Ni05OWU3LWRjNTgyZDYzMThhMS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.96xMlxz7gHMg_aiYdxnalRWhZs1R5ZyML6hvnfri_9I&quot; height=&quot;400&quot;/&gt;
 
-&quot;...a pity that doesn&#39;t make you any less than a sissy, dear!&quot;</tw-passagedata></tw-storydata>
+&quot;...a pity that doesn&#39;t make you any less than a sissy, dear!&quot;</tw-passagedata><tw-passagedata pid="9" name="Red Handed" tags="ending" position="200,343" size="100,100">You enter the house where the bros that would act as the judges for your Challenge were awaiting you... only to find none of them there. Instead, you&#39;re greeted by 8 female figures, menacingly waiting for you.
+
+&quot;Well, well, well... looks like yet another loser attempted the Panty Raid...&quot; Ingrid started, her voice sliding off her mouth as if she savored every word.
+
+&quot;And by the looks of it, he suceeded!&quot; Claire giggled. &quot;Or did he?&quot;
+
+&quot;Ah-bah-bah... Not so fast!&quot; Amanda intervened, as the Law major that she was. &quot;The terms of the raid state that if you&#39;re caught before returning and finishing the raid, you shall be submitted to humiliation. And, well... we caught you before you even stepped into the room!&quot;
+
+You tried to argue, only to be silenced by a wad of 8 panties at once.
+
+&quot;Shush, dear.&quot; Ingrid grabbed you by the chin. &quot;No use in arguing. Just come with us...&quot;
+
+&lt;img src=&quot;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3ebe4785-a3b6-46be-89d1-41d731921500/dcosluz-f20ab341-5bcc-451a-8096-65c3d043e612.jpg/v1/fill/w_1024,h_820,q_75,strp/outfit_design_70_now_with_link_to_a_awesome_story_by_hinayui_dcosluz-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODIwIiwicGF0aCI6IlwvZlwvM2ViZTQ3ODUtYTNiNi00NmJlLTg5ZDEtNDFkNzMxOTIxNTAwXC9kY29zbHV6LWYyMGFiMzQxLTViY2MtNDUxYS04MDk2LTY1YzNkMDQzZTYxMi5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.aFVTigUqEDKyppm3-q58KFlS7iXxmM4-O-mgKcZxYWE&quot; height=&quot;400&quot; /&gt;
+
+&quot;...let&#39;s do a victory lap so everyone can see what a great winner you are!&quot;</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
