@@ -42,31 +42,34 @@ On her |bed&gt;[bed], a |cushions&gt;[pile of cushions] is neatly arranged. Her 
 The closet on the side has a |closet&gt;[pair of doors] as well as a few |jackpot&gt;[drawers on bottom.] A |chest&gt;[pink ornate chest] is sitting on a corner, for some reason.
 
 |report&gt;[]
-
 |exit)[Make your way out of there]
 
 (click: ?bed)[
 (set: $turns to it + 1)
 (append: ?report)[
-	You look under the bed, but all you find are socks. Used socks. You didn&#39;t peg Claire to be this much of a slob...]
+	You look under the bed, but all you find are socks. Used socks. You didn&#39;t peg Claire to be this much of a slob...
+]
 ]
 
 (click: ?cushions)[
 (set: $turns to it + 1)
 (append: ?report)[
-Rummaging through the cushions, you find a small chest filled with money. Neat! (But you won&#39;t actually pick it up, stealing is not part of the challenge!)]
+Rummaging through the cushions, you find a small chest filled with money. Neat! (But you won&#39;t actually pick it up, stealing is not part of the challenge!)
+]
 ]
 
 (click: ?chest)[
 (set: $turns to it + 1)
 (append: ?report)[
-Inside the chest are nothing but stuffed toys and china dolls. Is this girl a collector, or just refuses to let go of her childhood treasures?]
+Inside the chest are nothing but stuffed toys and china dolls. Is this girl a collector, or just refuses to let go of her childhood treasures?
+]
 ]
 
 (click: ?vanity)[
 (set: $turns to it + 1)
 (append: ?report)[
-The vanity drawers are filled with jewelry and accessories. Accidentally, you bump into |secret&gt;[a hollow panel] in the depths of a drawer...]
+The vanity drawers are filled with jewelry and accessories. Accidentally, you bump into |secret&gt;[a hollow panel] in the depths of a drawer...
+]
 ]
 
 (click: ?secret)[
@@ -74,25 +77,29 @@ The vanity drawers are filled with jewelry and accessories. Accidentally, you bu
 (append: ?report)[
 You manage to dislodge the fake panel and find a box with lovely decorations painted on its lid. Inside, there are sex toys.
 
-Well, that was a pleasant surprise!]
+Well, that was a pleasant surprise!
+]
 ]
 
 (click: ?case)[
 (set: $turns to it + 1)
 (append: ?report)[
-Inside the make-up case there is... make-up. Are you really sure you should be wasting your time looking in weird places like this?]
+Inside the make-up case there is... make-up. Are you really sure you should be wasting your time looking in weird places like this?
+]
 ]
 
 (click: ?closet)[
 (set: $turns to it + 1)
 (append: ?report)[
-Claire&#39;s clothes are hung inside the closet, all treading the boundaries between girly and practical. Nothing less than expected from the resident Pixie Manic Girl...]
+Claire&#39;s clothes are hung inside the closet, all treading the boundaries between girly and practical. Nothing less than expected from the resident Pixie Manic Girl...
+]
 ]
 
 (click: ?jackpot)[
 (set: $turns to it + 1)
 (append: ?report)[
-Opening the closet drawers, you find... *a pair of pink frilly panties with white heart print!* Jackpot!]
+Opening the closet drawers, you find... *a pair of pink frilly panties with white heart print!* Jackpot!
+]
 (show: ?exit)
 (set: $panties to it + (a: &quot;Claire&quot;))
 ]
