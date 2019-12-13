@@ -53,7 +53,7 @@ It&#39;s time to head out...
 0. |claire&gt;[ [[Claire&#39;s Dorm]] ]
 0. |ingrid&gt;[ [[Ingrid&#39;s Dorm]] ]
 0. |shawna&gt;[ [[Shawna&#39;s Dorm]] ]
-0. |donna&gt;[ [[Donna&#39;s Dorm]] ]
+0. |donna&gt;[ Donna&#39;s Dorm ]
 0. Coming Soon
 0. Coming Soon
 (if: length of $panties is 6) [0. [[Dean Trouzerdonner&#39;s Dorm]] ]
@@ -188,7 +188,9 @@ Her room is organized and clean, not many places to search, actually... but you 
 |report&gt;[]
 |exit)[Get the hell outta here]
 
-(click: ?exit)[(if: $turns &gt; 6)[(goto: &quot;Caught By Ingrid&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]</tw-passagedata><tw-passagedata pid="11" name="Dean Trouzerdonner&#39;s Dorm" tags="" position="650,152" size="100,100">*A last challenge for the experienced player... and ultimately a punishment for their hubris*</tw-passagedata><tw-passagedata pid="12" name="Caught By Ingrid" tags="" position="801,501" size="100,100">&quot;Well, well, well... what do we have here...&quot;
+(click: ?exit)[(if: $turns &gt; 6)[(goto: &quot;Caught By Ingrid&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]
+
+[[Fail on Purpose-&gt;Caught By Ingrid]]</tw-passagedata><tw-passagedata pid="11" name="Dean Trouzerdonner&#39;s Dorm" tags="" position="650,152" size="100,100">*A last challenge for the experienced player... and ultimately a punishment for their hubris*</tw-passagedata><tw-passagedata pid="12" name="Caught By Ingrid" tags="" position="801,501" size="100,100">&quot;Well, well, well... what do we have here...&quot;
 
 Ingrid comes into the room, but you have the impression that she has been watching you for a long time, only waiting for you to make your way out to finally pounce at you at the last possible moment.
 
@@ -200,7 +202,7 @@ Ingrid comes into the room, but you have the impression that she has been watchi
 |hall-of-shame)[ [[Hall of Shame]] ]
 ]
 
-(if: length of (history: where its tags contains &quot;ending&quot;) &gt; 0)[(show: ?hall-of-shame)]</tw-passagedata><tw-passagedata pid="16" name="Hall of Shame" tags="" position="963,74" size="100,100">(undo: Go Back)</tw-passagedata><tw-passagedata pid="17" name="Try Again?" tags="footer" position="513,78" size="100,100">(if: tags of (passage:) contains &quot;ending&quot;)[
+(if: length of (history: where its tags contains &quot;ending&quot;) &gt; 0)[(show: ?hall-of-shame)]</tw-passagedata><tw-passagedata pid="16" name="Hall of Shame" tags="" position="963,74" size="100,100">(link-undo:&quot;Go Back&quot;)</tw-passagedata><tw-passagedata pid="17" name="Try Again?" tags="footer" position="513,78" size="100,100">(if: tags of (passage:) contains &quot;ending&quot;)[
 ----
 *It seems like you&#39;ve met with an awfully frilly fate...* [[Try again?-&gt;New Game+]]
 ]</tw-passagedata><tw-passagedata pid="18" name="Coward Bitch" tags="ending" position="726,651" size="100,100">She nabs you by the ankle, pulling you back in. &quot;Oh, no, no, no... no fleeing. You know that wouldn&#39;t do you any good anyway... I&#39;d simply call the bros and let them know who caught you... you&#39;d be a sitting prey for my future ire anyway...&quot;
@@ -219,23 +221,45 @@ She drags you across the carpet. &quot;I could delay this inevitability, like yo
 [[&quot;Nerd&quot;-&gt;Smell like Teen Spirit]]
 [[Remain silent-&gt;Back to School]]</tw-passagedata><tw-passagedata pid="20" name="Donna&#39;s Dorm" tags="" position="400,651" size="100,100">Donna&#39;s dorm is so big, but that was to be expected considering the fact that she was related to college staff... and given her own size itself. The expansive woman must know that her inclusion in the Panty Raid event itself is something akin to a note of comedic relief, the most egregious and enormous panties in the bunch when they&#39;re put up on display.
 
-You&#39;d feel more sorry if it weren&#39;t for the fact that your fate if you failed to focus and search this huge room was probably going to be a lot worse than her inevitable humiliation.</tw-passagedata><tw-passagedata pid="21" name="Shawna&#39;s Dorm" tags="" position="601,650" size="100,100">Shawna&#39;s room was a mess, and yet the question half-seriously floating in your mind at the time was whether you&#39;d even find any panties at all in there. Not to pass judgment, but you were sure one didn&#39;t get such reputation for nothing, really...
+You&#39;d feel more sorry if it weren&#39;t for the fact that your fate if you failed to focus and search this huge room was probably going to be a lot worse than her inevitable humiliation.
+
+[[Fail on Purpose-&gt;Caught By Donna]]</tw-passagedata><tw-passagedata pid="21" name="Shawna&#39;s Dorm" tags="" position="601,650" size="100,100">Shawna&#39;s room was a mess, and yet the question half-seriously floating in your mind at the time was whether you&#39;d even find any panties at all in there. Not to pass judgment, but you were sure one didn&#39;t get such reputation for nothing, really...
 
 |report&gt;[]
 |exit)[Make your way out of here]
 
-(click: ?exit)[(if: $turns &gt; 9)[(goto: &quot;Caught By Shawna&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]</tw-passagedata><tw-passagedata pid="22" name="Caught By Shawna" tags="" position="882,927" size="100,100">You were surprise by two snapping sounds, almost at once: the window closing, pulled from an arm coming from behind; and the slap that Shawna gave on your butt, mockingly.
+(click: ?exit)[(if: $turns &gt; 9)[(goto: &quot;Caught By Shawna&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]
+
+[[Fail on Purpose-&gt;Caught By Shawna]]</tw-passagedata><tw-passagedata pid="22" name="Caught By Shawna" tags="" position="882,927" size="100,100">You were surprise by two snapping sounds, almost at once: the window closing, pulled from an arm coming from behind; and the slap that Shawna gave on your butt, mockingly.
 
 &quot;Well, well... you were so close, panty raider!&quot; She smiled and winked. &quot;But it seems you were caught. You&#39;re mine now. What shall I do with you...&quot;
 
 [[Try to seduce her-&gt;Attempt Seduction]]
-[[Beg for mercy-&gt;Invite Humiliation]]</tw-passagedata><tw-passagedata pid="23" name="Caught By Donna" tags="" position="184,797" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="24" name="Attempt Seduction" tags="" position="807,1077" size="100,100">&quot;What&#39;s with the sweet talk, boy?&quot; She says, cutting you down instantly. &quot;Do you really think this moment, where you&#39;re trying to sneak off with my panties in your hand, is the moment where I&#39;d drop anything and fall for you?&quot;
+[[Beg for mercy-&gt;Mercy]]</tw-passagedata><tw-passagedata pid="23" name="Caught By Donna" tags="" position="184,797" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="24" name="Attempt Seduction" tags="" position="807,1077" size="100,100">&quot;What&#39;s with the sweet talk, boy?&quot; She says, cutting you down instantly. &quot;Do you really think this moment, where you&#39;re trying to sneak off with my panties in your hand, is the moment where I&#39;d drop anything and fall for you?&quot;
 
 &quot;Besides, you&#39;re not even my type... I don&#39;t even know you! What makes you think I&#39;d go to bed with you, huh?&quot;
 
 [[&quot;Well, you went with everyone else...&quot;-&gt;Slutshaming]]
 [[&quot;I&#39;m... a really nice guy?&quot;-&gt;Nice Guy]]
-[[&quot;I... I&#39;m sorry&quot;-&gt;Invite Humiliation]]</tw-passagedata><tw-passagedata pid="25" name="Invite Humiliation" tags="" position="957,1077" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="26" name="Slutshaming" tags="" position="807,1227" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="27" name="Nice Guy" tags="" position="959,1229" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="28" name="Revenge of the Nerds" tags="ending" position="737,801" size="100,100">&quot;Oh, no... I bet you were so bad to all the nerds, weren&#39;t you?&quot; She scoffs. &quot;Well, good thing time has passed and things have changed, right?&quot;
+[[&quot;I... I&#39;m sorry&quot;-&gt;Mercy]]</tw-passagedata><tw-passagedata pid="25" name="Mercy" tags="ending" position="957,1077" size="100,100">&quot;Well, that won&#39;t do. Mercy is not really my thing...&quot;
+
+&lt;img src=&quot;img/panty/shawna/stripper.png&quot; /&gt;
+
+&quot;But it is a nice stripper name, isn&#39;t it?&quot;</tw-passagedata><tw-passagedata pid="26" name="Slutshaming" tags="ending" position="807,1227" size="100,100">&quot;Oh, really?!&quot; She was furious, suddenly making you realize you made a huge mistake. &quot;Who told you that, huh? These supposed &#39;everyone else&#39;? The few that admit that they never even had the chance and are bitter about it? Those gossiping Allison bitches?&quot;
+
+&quot;Oh, no, don&#39;t even bother trying to apologize. You said enough already, dear. Allow me to repay you for that honesty...&quot;
+
+&lt;img src=&quot;img/panty/shawna/hooker.png&quot; /&gt;
+
+&quot;...by giving you the chance to look just like someone who&#39;ll get in bed with a lot of people, too!&quot;</tw-passagedata><tw-passagedata pid="27" name="Nice Guy" tags="ending" position="959,1229" size="100,100">&quot;Oh, please!&quot; She scoffed. &quot;Just because you&#39;re nice you think you deserve gratification? How pathetic...&quot;
+
+&quot;Nice guys like you are never really that nice, aren&#39;t they? I bet that if we were not in this situation, I&#39;d just say no and you&#39;d simply lie and brag around... or maybe resent the other braggarts who supposedly got what you couldn&#39;t!&quot;
+
+&quot;Well, lucky you, then...&quot;
+
+&lt;img src=&quot;img/panty/shawna/skank.png&quot; /&gt;
+
+&quot;...now you can tell everyone that I made you my bitch!&quot;</tw-passagedata><tw-passagedata pid="28" name="Revenge of the Nerds" tags="ending" position="737,801" size="100,100">&quot;Oh, no... I bet you were so bad to all the nerds, weren&#39;t you?&quot; She scoffs. &quot;Well, good thing time has passed and things have changed, right?&quot;
 
 &lt;img src=&quot;img/panty/ingrid/nerd.png&quot;/&gt;
 
@@ -245,7 +269,13 @@ Ingrid smiled. &quot;Well, I have good news for you, dear...&quot;
 
 &lt;img src=&quot;img/panty/ingrid/cheer.png&quot; /&gt;
 
-&quot;Tonight you&#39;re going to be the source of all the fun!&quot;</tw-passagedata><tw-passagedata pid="30" name="Back to School" tags="" position="1042,799" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
+&quot;Tonight you&#39;re going to be the source of all the fun!&quot;</tw-passagedata><tw-passagedata pid="30" name="Back to School" tags="ending" position="1042,799" size="100,100">&quot;No talk? Really?&quot; She sighed, annoyed but amused. &quot;Guess you didn&#39;t have a very remarkable high school experience? That&#39;s sad...&quot;
+
+&quot;High school is the time when we form our personality, the years were we are most vulnerable to the emotions and experiences that mold our adult selves. It can&#39;t be denied, honey.&quot;
+
+&lt;img src=&quot;img/panty/ingrid/school.png&quot; /&gt;
+
+&quot;So, how about a little crash course for ya?&quot;</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
