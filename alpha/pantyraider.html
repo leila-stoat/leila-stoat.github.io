@@ -11,7 +11,34 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="The Panty Raider" startnode="1" creator="Twine" creator-version="2.3.5" ifid="15232490-66F1-42FA-ADB2-814A4072E4E2" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="ending" color="green"></tw-tag>,<tw-tag name="hub" color="purple"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="400,199" size="100,100">For greater glory all across campus, you have decided to take part in the *Great Panty Raid Challenge*. As agreed across all factions involved, you are informed of the rules of the raid before you begin:
+<tw-storydata name="The Panty Raider" startnode="1" creator="Twine" creator-version="2.3.5" ifid="15232490-66F1-42FA-ADB2-814A4072E4E2" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
+  background-color: #201;
+  color: #fdd;
+}
+
+tw-passage {
+  left: 5.5em;
+  width: 100%;
+}
+
+tw-sidebar {
+  left: -11em;
+  width: 10em;
+  font-size: 12pt;
+  line-height: 1em;
+}
+
+tw-link {
+  color: #f6c;
+}
+
+tw-link:hover {
+  color: #f8f;
+}
+
+tw-link.visited {
+  color: #846;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="ending" color="green"></tw-tag>,<tw-tag name="hub" color="purple"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="400,199" size="100,100">For greater glory all across campus, you have decided to take part in the *Great Panty Raid Challenge*. As agreed across all factions involved, you are informed of the rules of the raid before you begin:
 
 0. The objective is to purloin one piece of underwear (panties) from each of the marked houses in the female dorm district and return.
 0. Returning with less loot than expected will have you deemed a loser.
@@ -19,30 +46,33 @@
 
 With all that in mind, you have prepared yourself to sneak into rooms and steal panties through out the whole Spring Break. You are ready!
 
-[[Head for the Female Dorm District-&gt;The Dorm Hub]]</tw-passagedata><tw-passagedata pid="2" name="The Dorm Hub" tags="hub" position="500,344" size="100,100">*Here the player selects their next destination.*
+[[Head for the Female Dorm District-&gt;The Dorm Hub]]</tw-passagedata><tw-passagedata pid="2" name="The Dorm Hub" tags="hub" position="501,343" size="100,100">You stand a the cul de sac, facing all the houses where you know you may find panties ripe for the raiding. Your training so far allows you to go in and out unnoticed and without challenge, but you know that time is of essence and that some of them may contain tricks and traps to catch more unprepared raiders.
+
+It&#39;s time to head out...
 
 0. |claire&gt;[ [[Claire&#39;s Dorm]] ]
+0. |ingrid&gt;[ [[Ingrid&#39;s Dorm]] ]
+0. |shawna&gt;[ [[Shawna&#39;s Dorm]] ]
+0. |donna&gt;[ [[Donna&#39;s Dorm]] ]
 0. Coming Soon
 0. Coming Soon
-0. Coming Soon
-0. Coming Soon
-0. Coming Soon
-0. Coming Soon
-0. Coming Soon
+(if: length of $panties is 6) [0. [[Dean Trouzerdonner&#39;s Dorm]] ]
 
-(if: length of $panties is 8) [ [[Return triumphantly with your Haul-&gt;Red Handed]] ]
+
+(if: length of $panties is 6) [ [[Return triumphantly with your Haul-&gt;Red Handed]] ]
 (if: length of $panties &gt; 0)[ [[Return with your Haul-&gt;Home]] ]
 
-(if: $panties contains &quot;Claire&quot;)[(replace: ?claire)[&quot;Claire&#39;s Dorm&quot;]]</tw-passagedata><tw-passagedata pid="3" name="Claire&#39;s Dorm" tags="" position="400,500" size="100,100">Claire&#39;s dorm is in the first floor, giving you an easy way in.
+(if: $panties contains &quot;Claire&quot;)[(replace: ?claire)[*Claire&#39;s Dorm*]]
+(if: $panties contains &quot;Ingrid&quot;)[(replace: ?ingrid)[*Ingrid&#39;s Dorm*]]
+(if: $panties contains &quot;Shawna&quot;)[(replace: ?shawna)[*Shawna&#39;s Dorm*]]
+(if: $panties contains &quot;Donna&quot;)[(replace: ?donna)[*Donna&#39;s Dorm*]]</tw-passagedata><tw-passagedata pid="3" name="Claire&#39;s Dorm" tags="" position="400,500" size="100,100">Claire is certainly the most approachable and fun-loving of the bunch, exuding pleasant energy and good vibes from the tip of the pom-poms on her novelty converse shoes to the top of her pixie-cut and dyed hair.
 
-Her room is very tidy and organized, probably not a place where finding a pair of panties would be hard at all.
-
-On her |bed&gt;[bed], a |cushions&gt;[pile of cushions] is neatly arranged. Her vanity has |vanity&gt;[many drawers] and upon it is |case&gt;[a large and very pink make-up case].
+Her room is very tidy and organized, probably not a place where finding a pair of panties would be hard at all. On her |bed&gt;[bed], a |cushions&gt;[pile of cushions] is neatly arranged. Her vanity has |vanity&gt;[many drawers] and upon it is |case&gt;[a large and very pink make-up case].
 
 The closet on the side has a |closet&gt;[pair of doors] as well as a few |jackpot&gt;[drawers on bottom.] A |chest&gt;[pink ornate chest] is sitting on a corner, for some reason.
 
 |report&gt;[]
-|exit)[Make your way out of there]
+|exit)[Make your way out of here]
 
 (click: ?bed)[
 (set: $turns to it + 1)
@@ -104,13 +134,21 @@ Opening the closet drawers, you find... *a pair of pink frilly panties with whit
 (set: $panties to it + (a: &quot;Claire&quot;))
 ]
 
-(click: ?exit)[(if: $turns &gt; 3)[(goto: &quot;Caught By Claire&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]</tw-passagedata><tw-passagedata pid="4" name="Home" tags="" position="802,344" size="100,100">You enter the house where the bros that would act as the judges for your Challenge were awaiting you. Almost trembling with excitement, you dump the load of panties on the center table. Everyone at once starts counting mentally in heir heads...
+(click: ?exit)[(if: $turns &gt; 3)[(goto: &quot;Caught By Claire&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]</tw-passagedata><tw-passagedata pid="4" name="Home" tags="" position="801,302" size="100,100">You enter the house where the bros that would act as the judges for your Challenge were awaiting you. Almost trembling with excitement, you dump the load of panties on the center table. Everyone at once starts counting mentally in heir heads...
 
-(if: length of $panties &lt; 8)[
 (set: $panties_number to length of $panties)
 &quot;... $panties_number? Are you kidding me?&quot; The broest of them say, confronting you. &quot;That won&#39;t do, loser. You knew of the consequences, so you&#39;ll be handed off... to be punished.&quot;
-]</tw-passagedata><tw-passagedata pid="5" name="Game Setup" tags="startup" position="202,199" size="100,100">(set: $turns to 0)
-(set: $panties to (a:))</tw-passagedata><tw-passagedata pid="6" name="Caught By Claire" tags="" position="188,502" size="100,100">Suddenly, the lights go on.
+
+You stutter and stammer, trying to defend yourself... but it&#39;s useless, as the bros grab you by the arms to prevent your escape, pushing you towards the door, to the way out.
+
+From the porch, you can see the pink limo arriving, bringing inside the perpetrators of your impeding doom: the squad of four almost identical blonde bombshells, the Alisons.
+
+&quot;Hey, Chad!&quot; Alison calls out, coming forward, sidled by her three squad mates. &quot;This the loser? What a cutie.&quot; She kisses you on the nose, then they take your arms from the bros, and pull you with them into the limo.
+
+&quot;Don&#39;t worry, hon.&quot; She says, as the tinted windows roll up and the car speeds down the road. &quot;[[We&#39;re gonna take real good care of you...-&gt;Utter Failure]]&quot;</tw-passagedata><tw-passagedata pid="5" name="New Game" tags="startup" position="202,199" size="100,100">(set: $turns to 0)
+(set: $panties to (a:))</tw-passagedata><tw-passagedata pid="6" name="Caught By Claire" tags="" position="198,499" size="100,100">(set: $pro_tip to &quot;You took too long and Claire has caught up with you... try being faster next time!&quot;)
+
+Suddenly, the lights go on.
 
 &quot;My, oh my...&quot; Claire is standing at the boundary of her door, looking at you with a wicked smile that did not match her adorable girly looks. &quot;Looks like someone is doing the Panty Raid once again... to think I&#39;d have the honor of catching a loser!&quot;
 
@@ -121,11 +159,11 @@ She laughed to herself, calmly making her way toward you. You eyed the window, w
 
 &quot;For that... well, I won&#39;t hold down. When I&#39;m done with you, you&#39;ll be known for what you are...&quot;
 
-&lt;img src=&quot;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3ebe4785-a3b6-46be-89d1-41d731921500/dcosnh3-75061a8c-812b-4249-8721-e92a1103bde5.jpg/v1/fill/w_1024,h_820,q_75,strp/outfit_design_75_by_hinayui_dcosnh3-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODIwIiwicGF0aCI6IlwvZlwvM2ViZTQ3ODUtYTNiNi00NmJlLTg5ZDEtNDFkNzMxOTIxNTAwXC9kY29zbmgzLTc1MDYxYThjLTgxMmItNDI0OS04NzIxLWU5MmExMTAzYmRlNS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.7vBF96djiwVHiMH6spoZVJWKEY_ur_LCP24fgC6mYV4&quot; height=&quot;400&quot;/&gt;
+&lt;img src=&quot;img/panty/claire/coward.png&quot;/&gt;
 
 &quot;...a wimpy sissy!&quot;</tw-passagedata><tw-passagedata pid="8" name="Proud Sissy" tags="ending" position="206,656" size="100,100">&quot;Not going to try and run away?&quot; She said, smiling. &quot;Good boy. You&#39;re a proud one, ready to take the punishment you deserve...&quot;
 
-&lt;img src=&quot;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3ebe4785-a3b6-46be-89d1-41d731921500/dcosonk-55e54020-c11c-4996-99e7-dc582d6318a1.jpg/v1/fill/w_1024,h_820,q_75,strp/outfit_design_81_by_hinayui_dcosonk-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODIwIiwicGF0aCI6IlwvZlwvM2ViZTQ3ODUtYTNiNi00NmJlLTg5ZDEtNDFkNzMxOTIxNTAwXC9kY29zb25rLTU1ZTU0MDIwLWMxMWMtNDk5Ni05OWU3LWRjNTgyZDYzMThhMS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.96xMlxz7gHMg_aiYdxnalRWhZs1R5ZyML6hvnfri_9I&quot; height=&quot;400&quot;/&gt;
+&lt;img src=&quot;img/panty/claire/proud.png&quot;/&gt;
 
 &quot;...a pity that doesn&#39;t make you any less than a sissy, dear!&quot;</tw-passagedata><tw-passagedata pid="9" name="Red Handed" tags="ending" position="200,343" size="100,100">You enter the house where the bros that would act as the judges for your Challenge were awaiting you... only to find none of them there. Instead, you&#39;re greeted by 8 female figures, menacingly waiting for you.
 
@@ -139,9 +177,75 @@ You tried to argue, only to be silenced by a wad of 8 panties at once.
 
 &quot;Shush, dear.&quot; Ingrid grabbed you by the chin. &quot;No use in arguing. Just come with us...&quot;
 
-&lt;img src=&quot;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3ebe4785-a3b6-46be-89d1-41d731921500/dcosluz-f20ab341-5bcc-451a-8096-65c3d043e612.jpg/v1/fill/w_1024,h_820,q_75,strp/outfit_design_70_now_with_link_to_a_awesome_story_by_hinayui_dcosluz-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODIwIiwicGF0aCI6IlwvZlwvM2ViZTQ3ODUtYTNiNi00NmJlLTg5ZDEtNDFkNzMxOTIxNTAwXC9kY29zbHV6LWYyMGFiMzQxLTViY2MtNDUxYS04MDk2LTY1YzNkMDQzZTYxMi5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.aFVTigUqEDKyppm3-q58KFlS7iXxmM4-O-mgKcZxYWE&quot; height=&quot;400&quot; /&gt;
+&lt;img src=&quot;img/panty/winner/winner.png&quot; /&gt;
 
-&quot;...let&#39;s do a victory lap so everyone can see what a great winner you are!&quot;</tw-passagedata></tw-storydata>
+&quot;...let&#39;s do a victory lap so everyone can see what a great winner you are!&quot;</tw-passagedata><tw-passagedata pid="10" name="Ingrid&#39;s Dorm" tags="" position="598,502" size="100,100">The word that best defines Ingrid would be &quot;threatening.&quot; She was sexy, and she knew it, and yet she didn&#39;t flaunt it. Always dressed sharply, make-up always dark and very precisely applied on her face of hard contours, never walking on top of anything less than 4&quot; of heels or platforms. Many guys wanted her, but very few deserved her... and even fewer ever actually had the chance to prove themselves.
+
+Her room is organized and clean, not many places to search, actually... but you have the clear impression that it will be anything but an easy task.
+
+
+
+|report&gt;[]
+|exit)[Get the hell outta here]
+
+(click: ?exit)[(if: $turns &gt; 6)[(goto: &quot;Caught By Ingrid&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]</tw-passagedata><tw-passagedata pid="11" name="Dean Trouzerdonner&#39;s Dorm" tags="" position="650,152" size="100,100">*A last challenge for the experienced player... and ultimately a punishment for their hubris*</tw-passagedata><tw-passagedata pid="12" name="Caught By Ingrid" tags="" position="801,501" size="100,100">&quot;Well, well, well... what do we have here...&quot;
+
+Ingrid comes into the room, but you have the impression that she has been watching you for a long time, only waiting for you to make your way out to finally pounce at you at the last possible moment.
+
+&quot;A loser!&quot; She laughs, the sharp frames of her thick rimmed glasses giving her an extra air of malice. She keeps on laughing at your misfortune...
+
+[[Slip away while she laughs-&gt;Coward Bitch]]
+[[Wait for her to be done-&gt;Resigned]]</tw-passagedata><tw-passagedata pid="13" name="Utter Failure" tags="ending" position="1001,301" size="100,100">&lt;img src=&quot;img/panty/loser/loser1.png&quot; /&gt;</tw-passagedata><tw-passagedata pid="14" name="New Game+" tags="" position="335,77" size="100,100">(display: &quot;New Game&quot;)
+(goto: &quot;The Dorm Hub&quot;)</tw-passagedata><tw-passagedata pid="15" name="Sidebar" tags="header" position="802,72" size="100,100">(replace: ?Sidebar)[
+|hall-of-shame)[ [[Hall of Shame]] ]
+]
+
+(if: length of (history: where its tags contains &quot;ending&quot;) &gt; 0)[(show: ?hall-of-shame)]</tw-passagedata><tw-passagedata pid="16" name="Hall of Shame" tags="" position="963,74" size="100,100">(undo: Go Back)</tw-passagedata><tw-passagedata pid="17" name="Try Again?" tags="footer" position="513,78" size="100,100">(if: tags of (passage:) contains &quot;ending&quot;)[
+----
+*It seems like you&#39;ve met with an awfully frilly fate...* [[Try again?-&gt;New Game+]]
+]</tw-passagedata><tw-passagedata pid="18" name="Coward Bitch" tags="ending" position="726,651" size="100,100">She nabs you by the ankle, pulling you back in. &quot;Oh, no, no, no... no fleeing. You know that wouldn&#39;t do you any good anyway... I&#39;d simply call the bros and let them know who caught you... you&#39;d be a sitting prey for my future ire anyway...&quot;
+
+She drags you across the carpet. &quot;I could delay this inevitability, like you wished... but I&#39;d rather work on you right now. And, you know how they say &#39;twice for flinching&#39;? ...&quot;
+
+&lt;img src=&quot;img/panty/ingrid/coward.png&quot;/&gt;
+
+&quot;...Consider this the retribution for your attempt to flee!&quot;</tw-passagedata><tw-passagedata pid="19" name="Resigned" tags="" position="876,651" size="100,100">After a long while, she&#39;s done laughing. &quot;Well... let&#39;s start.&quot; She says, wiping tears off the sides of her eyes.
+
+&quot;I&#39;d like to know you better beforehand, though.&quot; She says, gently conducting you by the shoulder, picking the panties back discreetly from your hands while she has you sitting on a chair. &quot;I think this is going to be a lot more fun if I understand you. You&#39;re, like, not even a year in this college? Maybe you thought this would be a good foot forward, hm?&quot;
+
+&quot;So, here&#39;s what I&#39;d like to know...&quot; She said, not waiting for you to reply or explain yourself. &quot;In high school, would you say you were more of an athletic, jock type; or more shy and introverted, like a nerd?&quot;
+
+[[&quot;Jock&quot;-&gt;Revenge of the Nerds]]
+[[&quot;Nerd&quot;-&gt;Smell like Teen Spirit]]
+[[Remain silent-&gt;Back to School]]</tw-passagedata><tw-passagedata pid="20" name="Donna&#39;s Dorm" tags="" position="400,651" size="100,100">Donna&#39;s dorm is so big, but that was to be expected considering the fact that she was related to college staff... and given her own size itself. The expansive woman must know that her inclusion in the Panty Raid event itself is something akin to a note of comedic relief, the most egregious and enormous panties in the bunch when they&#39;re put up on display.
+
+You&#39;d feel more sorry if it weren&#39;t for the fact that your fate if you failed to focus and search this huge room was probably going to be a lot worse than her inevitable humiliation.</tw-passagedata><tw-passagedata pid="21" name="Shawna&#39;s Dorm" tags="" position="601,650" size="100,100">Shawna&#39;s room was a mess, and yet the question half-seriously floating in your mind at the time was whether you&#39;d even find any panties at all in there. Not to pass judgment, but you were sure one didn&#39;t get such reputation for nothing, really...
+
+|report&gt;[]
+|exit)[Make your way out of here]
+
+(click: ?exit)[(if: $turns &gt; 9)[(goto: &quot;Caught By Shawna&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]</tw-passagedata><tw-passagedata pid="22" name="Caught By Shawna" tags="" position="882,927" size="100,100">You were surprise by two snapping sounds, almost at once: the window closing, pulled from an arm coming from behind; and the slap that Shawna gave on your butt, mockingly.
+
+&quot;Well, well... you were so close, panty raider!&quot; She smiled and winked. &quot;But it seems you were caught. You&#39;re mine now. What shall I do with you...&quot;
+
+[[Try to seduce her-&gt;Attempt Seduction]]
+[[Beg for mercy-&gt;Invite Humiliation]]</tw-passagedata><tw-passagedata pid="23" name="Caught By Donna" tags="" position="184,797" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="24" name="Attempt Seduction" tags="" position="807,1077" size="100,100">&quot;What&#39;s with the sweet talk, boy?&quot; She says, cutting you down instantly. &quot;Do you really think this moment, where you&#39;re trying to sneak off with my panties in your hand, is the moment where I&#39;d drop anything and fall for you?&quot;
+
+&quot;Besides, you&#39;re not even my type... I don&#39;t even know you! What makes you think I&#39;d go to bed with you, huh?&quot;
+
+[[&quot;Well, you went with everyone else...&quot;-&gt;Slutshaming]]
+[[&quot;I&#39;m... a really nice guy?&quot;-&gt;Nice Guy]]
+[[&quot;I... I&#39;m sorry&quot;-&gt;Invite Humiliation]]</tw-passagedata><tw-passagedata pid="25" name="Invite Humiliation" tags="" position="957,1077" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="26" name="Slutshaming" tags="" position="807,1227" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="27" name="Nice Guy" tags="" position="959,1229" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="28" name="Revenge of the Nerds" tags="ending" position="737,801" size="100,100">&quot;Oh, no... I bet you were so bad to all the nerds, weren&#39;t you?&quot; She scoffs. &quot;Well, good thing time has passed and things have changed, right?&quot;
+
+&lt;img src=&quot;img/panty/ingrid/nerd.png&quot;/&gt;
+
+&quot;But I think now is the time for reparations!&quot;</tw-passagedata><tw-passagedata pid="29" name="Smell like Teen Spirit" tags="ending" position="885,813" size="100,100">&quot;Hmm... keeping to yourself, burying your nose into your own interests... I bet some people might have told you to go outside and have some fun?&quot;
+
+Ingrid smiled. &quot;Well, I have good news for you, dear...&quot;
+
+&lt;img src=&quot;img/panty/ingrid/cheer.png&quot; /&gt;
+
+&quot;Tonight you&#39;re going to be the source of all the fun!&quot;</tw-passagedata><tw-passagedata pid="30" name="Back to School" tags="" position="1042,799" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
