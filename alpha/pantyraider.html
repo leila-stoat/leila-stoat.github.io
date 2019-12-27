@@ -186,16 +186,74 @@ You tried to argue, only to be silenced by a wad of 8 panties at once.
 
 &quot;...let&#39;s do a victory lap so everyone can see what a great winner you are!&quot;</tw-passagedata><tw-passagedata pid="10" name="Ingrid&#39;s Dorm" tags="" position="598,502" size="100,100">The word that best defines Ingrid would be &quot;threatening.&quot; She was sexy, and she knew it, and yet she didn&#39;t flaunt it. Always dressed sharply, make-up always dark and very precisely applied on her face of hard contours, never walking on top of anything less than 4&quot; of heels or platforms. Many guys wanted her, but very few deserved her... and even fewer ever actually had the chance to prove themselves.
 
-Her room is organized and clean, not many places to search, actually... but you have the clear impression that it will be anything but an easy task.
-
-
+Her room is organized and clean, not many places to search, actually... but you have the clear impression that it will be anything but an easy task. Her |bed&gt;[bed] is a box, tidily organized. |closet&gt;[The closet] is built into the wall, two doors only. No vanity or a trunk, the only other furniture in her room are |rack&gt;[a coat rack with coats and purses], |mirror&gt;[a mirror attached to the wall] and |drawer&gt;[an antique-looking full-length mirror with a single drawer near its stand].
 
 |report&gt;[]
 |exit)[Get the hell outta here]
 
-(click: ?exit)[(if: $turns &gt; 6)[(goto: &quot;Caught By Ingrid&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]
+(click: ?bed)[
+(set: $turns to it + 1)
+(append: ?report)[
+The bed itself has a drawer where Indrid seemingly keeps most of her clothes in. There are color-coded bags stuffed with soft contents, |red&gt;[a red one], |blue&gt;[a blue one] and |black&gt;[a black one].
+]
+]
 
-[[Fail on Purpose-&gt;Caught By Ingrid]]</tw-passagedata><tw-passagedata pid="11" name="Dean Trouzerdonner&#39;s Dorm" tags="" position="650,152" size="100,100">*A last challenge for the experienced player... and ultimately a punishment for their hubris*</tw-passagedata><tw-passagedata pid="12" name="Caught By Ingrid" tags="" position="801,501" size="100,100">&quot;Well, well, well... what do we have here...&quot;
+(click: ?red)[
+(set: $turns to it + 1)
+(append: ?report)[
+The red bag is filled with nothing but blouses.
+]
+]
+
+(click: ?blue)[
+(set: $turns to it + 1)
+(append: ?report)[
+The blue bag is filled with nothing but bras. So close!
+]
+]
+
+(click: ?black)[
+(set: $turns to it + 1)
+(append: ?report)[
+The black bag is filled with laundry... no dirty panties, though.
+]
+]
+
+(click: ?closet)[
+(set: $turns to it + 1)
+(append: ?report)[
+The closet is neatly organized with coats on the racks, socks and shoes arranged nicely on the carpeted floor. No underwear of any kind...
+]
+]
+
+(click: ?rack)[
+(set: $turns to it + 1)
+(append: ?report)[
+The purses and coats contain nothing of interest... you&#39;d be quite surprised if Ingrid walked around carrying panties in her pockets, really.
+]
+]
+
+(click: ?mirror)[
+(set: $turns to it + 1)
+(append: ?report)[
+You fiddle and meddle with the mirror, hoping something tricky could be hiding behind it... a one-way mirror perhaps? A hiding place for a safe?
+
+...It&#39;s none of those things, though. It&#39;s just a mirror on the wall.
+]
+]
+
+(click: ?drawer)[
+(set: $turns to it + 1)
+(append: ?report)[
+You open the drawer at the base of the large mirror, sitting conspicuously near the door, calling your attention in such a clean and modernly furnished room. Could it really be this easy?
+
+...it was. The drawer is filled with panties, including an iconic pair of black lacy panties. Jackpot!
+]
+(show: ?exit)
+(set: $panties to it + (a: &quot;Ingrid&quot;))
+]
+
+(click: ?exit)[(if: $turns &gt; 6)[(goto: &quot;Caught By Ingrid&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]</tw-passagedata><tw-passagedata pid="11" name="Dean Trouzerdonner&#39;s Dorm" tags="" position="650,152" size="100,100">*A last challenge for the experienced player... and ultimately a punishment for their hubris*</tw-passagedata><tw-passagedata pid="12" name="Caught By Ingrid" tags="" position="801,501" size="100,100">&quot;Well, well, well... what do we have here...&quot;
 
 Ingrid comes into the room, but you have the impression that she has been watching you for a long time, only waiting for you to make your way out to finally pounce at you at the last possible moment.
 
