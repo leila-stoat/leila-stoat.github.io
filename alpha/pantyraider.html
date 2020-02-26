@@ -21,11 +21,6 @@ tw-passage {
   width: 100%;
 }
 
-tw-passage img {
-  max-width: 80%;
-  max-height: 50%;
-}
-
 tw-sidebar {
   left: -11em;
   width: 10em;
@@ -58,7 +53,7 @@ It&#39;s time to head out...
 0. |claire&gt;[ [[Claire&#39;s Dorm]] ]
 0. |ingrid&gt;[ [[Ingrid&#39;s Dorm]] ]
 0. |shawna&gt;[ [[Shawna&#39;s Dorm]] ]
-0. |donna&gt;[ Donna&#39;s Dorm ]
+0. |donna&gt;[ [[Donna&#39;s Dorm]] ]
 0. Coming Soon
 0. Coming Soon
 (if: length of $panties is 6) [0. [[Dean Trouzerdonner&#39;s Dorm]] ]
@@ -186,74 +181,16 @@ You tried to argue, only to be silenced by a wad of 8 panties at once.
 
 &quot;...let&#39;s do a victory lap so everyone can see what a great winner you are!&quot;</tw-passagedata><tw-passagedata pid="10" name="Ingrid&#39;s Dorm" tags="" position="598,502" size="100,100">The word that best defines Ingrid would be &quot;threatening.&quot; She was sexy, and she knew it, and yet she didn&#39;t flaunt it. Always dressed sharply, make-up always dark and very precisely applied on her face of hard contours, never walking on top of anything less than 4&quot; of heels or platforms. Many guys wanted her, but very few deserved her... and even fewer ever actually had the chance to prove themselves.
 
-Her room is organized and clean, not many places to search, actually... but you have the clear impression that it will be anything but an easy task. Her |bed&gt;[bed] is a box, tidily organized. |closet&gt;[The closet] is built into the wall, two doors only. No vanity or a trunk, the only other furniture in her room are |rack&gt;[a coat rack with coats and purses], |mirror&gt;[a mirror attached to the wall] and |drawer&gt;[an antique-looking full-length mirror with a single drawer near its stand].
+Her room is organized and clean, not many places to search, actually... but you have the clear impression that it will be anything but an easy task.
+
+
 
 |report&gt;[]
 |exit)[Get the hell outta here]
 
-(click: ?bed)[
-(set: $turns to it + 1)
-(append: ?report)[
-The bed itself has a drawer where Indrid seemingly keeps most of her clothes in. There are color-coded bags stuffed with soft contents, |red&gt;[a red one], |blue&gt;[a blue one] and |black&gt;[a black one].
-]
-]
+(click: ?exit)[(if: $turns &gt; 6)[(goto: &quot;Caught By Ingrid&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]
 
-(click: ?red)[
-(set: $turns to it + 1)
-(append: ?report)[
-The red bag is filled with nothing but blouses.
-]
-]
-
-(click: ?blue)[
-(set: $turns to it + 1)
-(append: ?report)[
-The blue bag is filled with nothing but bras. So close!
-]
-]
-
-(click: ?black)[
-(set: $turns to it + 1)
-(append: ?report)[
-The black bag is filled with laundry... no dirty panties, though.
-]
-]
-
-(click: ?closet)[
-(set: $turns to it + 1)
-(append: ?report)[
-The closet is neatly organized with coats on the racks, socks and shoes arranged nicely on the carpeted floor. No underwear of any kind...
-]
-]
-
-(click: ?rack)[
-(set: $turns to it + 1)
-(append: ?report)[
-The purses and coats contain nothing of interest... you&#39;d be quite surprised if Ingrid walked around carrying panties in her pockets, really.
-]
-]
-
-(click: ?mirror)[
-(set: $turns to it + 1)
-(append: ?report)[
-You fiddle and meddle with the mirror, hoping something tricky could be hiding behind it... a one-way mirror perhaps? A hiding place for a safe?
-
-...It&#39;s none of those things, though. It&#39;s just a mirror on the wall.
-]
-]
-
-(click: ?drawer)[
-(set: $turns to it + 1)
-(append: ?report)[
-You open the drawer at the base of the large mirror, sitting conspicuously near the door, calling your attention in such a clean and modernly furnished room. Could it really be this easy?
-
-...it was. The drawer is filled with panties, including an iconic pair of black lacy panties. Jackpot!
-]
-(show: ?exit)
-(set: $panties to it + (a: &quot;Ingrid&quot;))
-]
-
-(click: ?exit)[(if: $turns &gt; 6)[(goto: &quot;Caught By Ingrid&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]</tw-passagedata><tw-passagedata pid="11" name="Dean Trouzerdonner&#39;s Dorm" tags="" position="650,152" size="100,100">*A last challenge for the experienced player... and ultimately a punishment for their hubris*</tw-passagedata><tw-passagedata pid="12" name="Caught By Ingrid" tags="" position="801,501" size="100,100">&quot;Well, well, well... what do we have here...&quot;
+[[Fail on Purpose-&gt;Caught By Ingrid]]</tw-passagedata><tw-passagedata pid="11" name="Dean Trouzerdonner&#39;s Dorm" tags="" position="650,152" size="100,100">*A last challenge for the experienced player... and ultimately a punishment for their hubris*</tw-passagedata><tw-passagedata pid="12" name="Caught By Ingrid" tags="" position="801,501" size="100,100">&quot;Well, well, well... what do we have here...&quot;
 
 Ingrid comes into the room, but you have the impression that she has been watching you for a long time, only waiting for you to make your way out to finally pounce at you at the last possible moment.
 
@@ -286,7 +223,63 @@ She drags you across the carpet. &quot;I could delay this inevitability, like yo
 
 You&#39;d feel more sorry if it weren&#39;t for the fact that your fate if you failed to focus and search this huge room was probably going to be a lot worse than her inevitable humiliation.
 
-[[Fail on Purpose-&gt;Caught By Donna]]</tw-passagedata><tw-passagedata pid="21" name="Shawna&#39;s Dorm" tags="" position="601,650" size="100,100">Shawna&#39;s room was a mess, and yet the question half-seriously floating in your mind at the time was whether you&#39;d even find any panties at all in there. Not to pass judgment, but you were sure one didn&#39;t get such reputation for nothing, really...
+Her large room is furnished with a collection of kitsch and girly items such as a large poster bed with frilled pink sheets, |vanity&gt;[a large pink vanity topped with dozens of creams and perfume flasks], |chest&gt;[a big bulging pink chest ornated with pearls] and |trash&gt;[a trash can shaped like a heart]. Wall to wall, her |closet&gt;[walk-in closet is composed of many doors], certainly just enough for her large wardrobe...
+
+|report&gt;[]
+|exit)[Make your way out of here]
+
+(click: ?vanity)[
+(set: $turns to it + 1)
+(append: ?report)[
+A pink vanity with so many creams and flasks with labes like &quot;anti-aging&quot; and &quot;vintage charm&quot;... You feel 5 years older just by being exposed to all that!
+]
+]
+
+(click: ?chest)[
+(set: $turns to it + 1)
+(append: ?report)[
+The big chest is filled with |sheets&gt;[linens and bed sheets]. Is everything in this room going to make you feel like you&#39;re rummaging through your grandma&#39;s things?
+]
+]
+
+(click: ?sheets)[
+(set: $turns to it + 1)
+(append: ?report)[
+Under all those sheets smelling of fresh cloth softener, you find, finally... *a gaudy and large set of lacy beige panties.* Jackpot?!
+]
+(show: ?exit)
+(set: $panties to it + (a: &quot;Donna&quot;))
+]
+
+(click: ?trash)[
+(set: $turns to it + 1)
+(append: ?report)[
+There are tissues and lots of coupons in the trash, but no panties... duh.
+]
+]
+
+(click: ?closet)[
+(set: $turns to it + 1)
+(append: ?report)[
+Claire&#39;s closet is large, which surely accomodates her large clothing, but was not spatious due to all the fur coats and padded boots filling the place.
+
+Sadly, you couldn&#39;t find the panties there... but there&#39;s |secret&gt;[some light shining near the floor, behind the wall on the eastern side.]
+]
+]
+
+(click: ?secret)[
+(set: $turns to it + 1)
+(append: ?report)[
+The wall opens up near the corner, and inside there is a pristine and short hallway. It leads right into a room that contains the most unexpected set of things in that whole dorm.
+
+Cabinets filled with baby powder, oil and packs of diapers; a high table with a padded top, with four leather shackles; cameras mounted all around...
+
+You walk backward and close the dor again, feeling like you&#39;ve seen something you realy shouldn&#39;t.
+]
+(set:$donna_secret to true)
+]
+
+(click: ?exit)[(if: $turns &gt; 5)[(goto: &quot;Caught By Donna&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]</tw-passagedata><tw-passagedata pid="21" name="Shawna&#39;s Dorm" tags="" position="601,650" size="100,100">Shawna&#39;s room was a mess, and yet the question half-seriously floating in your mind at the time was whether you&#39;d even find any panties at all in there. Not to pass judgment, but you were sure one didn&#39;t get such reputation for nothing, really...
 
 |report&gt;[]
 |exit)[Make your way out of here]
@@ -298,7 +291,23 @@ You&#39;d feel more sorry if it weren&#39;t for the fact that your fate if you f
 &quot;Well, well... you were so close, panty raider!&quot; She smiled and winked. &quot;But it seems you were caught. You&#39;re mine now. What shall I do with you...&quot;
 
 [[Try to seduce her-&gt;Attempt Seduction]]
-[[Beg for mercy-&gt;Mercy]]</tw-passagedata><tw-passagedata pid="23" name="Caught By Donna" tags="" position="184,797" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="24" name="Attempt Seduction" tags="" position="807,1077" size="100,100">&quot;What&#39;s with the sweet talk, boy?&quot; She says, cutting you down instantly. &quot;Do you really think this moment, where you&#39;re trying to sneak off with my panties in your hand, is the moment where I&#39;d drop anything and fall for you?&quot;
+[[Beg for mercy-&gt;Mercy]]</tw-passagedata><tw-passagedata pid="23" name="Caught By Donna" tags="" position="205,801" size="100,100">Donna needs to make no effort at all to block the door, your only way out as the window has been blocked by her security system.
+
+&quot;My, my, my... it seems like a naughty boy has sneaked into my room...&quot; She speaks with the tone of someone&#39;s old aunt, and she towers over you menacingly.
+
+&quot;Don&#39;t worry, dear, I&#39;m going to treat you nicely...&quot; 
+(if: $donna_secret)[She winks. &quot;You know that very well, don&#39;t you? You&#39;ve seen my little secret...&quot;
+
+You gulp, frantically picking at the secure lock, trying in vain to open the window again.
+
+&quot;It&#39;s not use, honey. It&#39;s locked shut. It wouldn&#39;t be a security system if it just opened up that easily, right?&quot; She giggles. &quot;Now, I&#39;m going to be nice to you and give you a choice... would you rather be a baby girl or a baby boy?&quot;
+
+[[&quot;A boy...&quot;-&gt;Donna&#39;s Sissy Boy]]
+[[&quot;A... girl?&quot;-&gt;Donna&#39;s Sissy Girl]] ]
+(else:)[
+[[&quot;Um... yes?&quot;-&gt;Cozy Sissy]]
+[[&quot;N-no!&quot;-&gt;Breezy Sissy]]
+]</tw-passagedata><tw-passagedata pid="24" name="Attempt Seduction" tags="" position="807,1077" size="100,100">&quot;What&#39;s with the sweet talk, boy?&quot; She says, cutting you down instantly. &quot;Do you really think this moment, where you&#39;re trying to sneak off with my panties in your hand, is the moment where I&#39;d drop anything and fall for you?&quot;
 
 &quot;Besides, you&#39;re not even my type... I don&#39;t even know you! What makes you think I&#39;d go to bed with you, huh?&quot;
 
@@ -338,7 +347,23 @@ Ingrid smiled. &quot;Well, I have good news for you, dear...&quot;
 
 &lt;img src=&quot;img/panty/ingrid/school.png&quot; /&gt;
 
-&quot;So, how about a little crash course for ya?&quot;</tw-passagedata></tw-storydata>
+&quot;So, how about a little crash course for ya?&quot;</tw-passagedata><tw-passagedata pid="31" name="Donna&#39;s Sissy Boy" tags="ending" position="0,951" size="100,100">&quot;Alright, then. Let me get you all dressed up...&quot;
+
+&lt;img src=&quot;img/panty/donna/baby_blue.png&quot;/&gt;
+
+&quot;What&#39;s wrong, dear? You&#39;re wearing blue clothes, aren&#39;t you? But don&#39;t worry. I&#39;m going to make sure everyone knows exactly what you are...&quot;</tw-passagedata><tw-passagedata pid="32" name="Donna&#39;s Sissy Girl" tags="ending" position="130,951" size="100,100">&quot;Alright, then. Let me get you all dressed up...&quot;
+
+&lt;img src=&quot;img/panty/donna/baby_magenta.png&quot;/&gt;
+
+&quot;There you go. All nice and padded. Now let&#39;s get you in your stroller for your very first outing as my lovely baby girl...&quot;</tw-passagedata><tw-passagedata pid="33" name="Cozy Sissy" tags="ending" position="280,951" size="100,100">&quot;I figured as much, all dressed in those black clothes... but don&#39;t worry, dear!&quot;
+
+&lt;img src=&quot;img/panty/donna/cold.png&quot;/&gt;
+
+&quot;Now you&#39;ll surely not feel any cold when you&#39;re out on your parade!&quot;</tw-passagedata><tw-passagedata pid="34" name="Breezy Sissy" tags="ending" position="430,951" size="100,100">&quot;Really? If that&#39;s so, you shouldn&#39;t be wearing all those padded black clothes...&quot;
+
+&lt;img src=&quot;img/panty/donna/bikini.png&quot;/&gt;
+
+&quot;See? This is much less warming. Now you won&#39;t be sweating when you walk out there... well, not because of the heat, I&#39;m sure!&quot;</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
