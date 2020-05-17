@@ -283,12 +283,78 @@ You walk backward and close the dor again, feeling like you&#39;ve seen somethin
 
 (click: ?exit)[(if: $turns &gt; 5)[(goto: &quot;Caught By Donna&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]</tw-passagedata><tw-passagedata pid="21" name="Shawna&#39;s Dorm" tags="" position="601,650" size="100,100">Shawna&#39;s room was a mess, and yet the question half-seriously floating in your mind at the time was whether you&#39;d even find any panties at all in there. Not to pass judgment, but you were sure one didn&#39;t get such reputation for nothing, really...
 
+The bed was a single mattress bed with a |sheets&gt;[nest of sheets and blankets] that were definitely left as they were since she got up that morning. The |closet&gt;[closet on the far wall was small], and in place of a vanity she just had a small table where |box&gt;[her make-up box sat], and a mirror was leaning against the wall.
+
+The walls were lined by posters, |magazine&gt;[some centerpiece from a teen magazine], |flyer&gt;[a concert flyer from years ago], |magiceye&gt;[a psychedelic 3-D illusion poster]... and a cork board with loads of pictures pinned to it.
+
 |report&gt;[]
 |exit)[Make your way out of here]
 
-(click: ?exit)[(if: $turns &gt; 9)[(goto: &quot;Caught By Shawna&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]
+(click: ?sheets)[
+(set: $turns to it + 1)
+(append: ?report)[
+The messy sheets are thrown all over the bed and reveal nothing underneath but |mattress&gt;[the mattress itself]. Talk about a waste of time!
+]
+]
 
-[[Fail on Purpose-&gt;Caught By Shawna]]</tw-passagedata><tw-passagedata pid="22" name="Caught By Shawna" tags="" position="882,927" size="100,100">You were surprise by two snapping sounds, almost at once: the window closing, pulled from an arm coming from behind; and the slap that Shawna gave on your butt, mockingly.
+(click: ?mattress)[
+(set: $turns to it + 1)
+(append: ?report)[
+Your hand goes under the mattress, feeling inch by inch... until something touches your fingers and you pull it out.
+
+The panties come out from under the mattress. *Jackpot!*
+]
+(show: ?exit)
+(set: $panties to it + (a: &quot;Shawna&quot;))
+]
+
+(click: ?closet)[
+(set: $turns to it + 1)
+(append: ?report)[
+Inside the closet are... clothes. All of the usual Shawna attires, short skirts and low cut tops... besides sundresses and long pajamas? Unexpected, I guess...
+]
+]
+
+(click: ?box)[
+(set: $turns to it + 1)
+(append: ?report)[
+The make-up box is filled with deep red lipstick, black mascara and purple nail polish bottles, about three copies of each, all of them half-used.
+
+I guess hiding panties in here would be unsanitary...
+]
+]
+
+(click: ?magazine)[
+(set: $turns to it + 1)
+(append: ?report)[
+The spread folded paper shows a full-body photoshoot of Nick Cormorant, lead singer of some old boy band you couldn&#39;t even bother to remember the name. This seems so old it probably was kept by Shawna from her own home since her pre-teen years.
+
+There&#39;s nothing behind it, though.
+]
+]
+
+(click: ?flyer)[
+(set: $turns to it + 1)
+(append: ?report)[
+The flyer advertises a concert of Lying Incubus, an indie metal band that you were sure has not existed for about a decade now.
+
+Nothing behind it, though.
+]
+]
+
+(click: ?magiceye)[
+(set: $turns to it + 2)
+(append: ?report)[
+The pyschedelic patterns of the poster call for your focus, promising something hidden if you could only see beyond...
+
+As the image unfocuses and the shapes rearrange in your unfocused view, you can see the illusion of a horse with a fish tail, jumping right out of the paper in your direction.
+
+Neat... but when you remember what you were doing, you realize there was nothing underneath the poster.
+]
+]
+
+(click: ?exit)[(if: $turns &gt; 9)[(goto: &quot;Caught By Shawna&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]
+</tw-passagedata><tw-passagedata pid="22" name="Caught By Shawna" tags="" position="882,927" size="100,100">You were surprise by two snapping sounds, almost at once: the window closing, pulled from an arm coming from behind; and the slap that Shawna gave on your butt, mockingly.
 
 &quot;Well, well... you were so close, panty raider!&quot; She smiled and winked. &quot;But it seems you were caught. You&#39;re mine now. What shall I do with you...&quot;
 
