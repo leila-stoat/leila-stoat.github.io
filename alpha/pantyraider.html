@@ -38,7 +38,16 @@ tw-link:hover {
 
 tw-link.visited {
   color: #846;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="ending" color="green"></tw-tag>,<tw-tag name="hub" color="purple"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="400,199" size="100,100">For greater glory all across campus, you have decided to take part in the *Great Panty Raid Challenge*. As agreed across all factions involved, you are informed of the rules of the raid before you begin:
+}
+
+img.sissy-on-parade {
+  display: block;
+  margin-top: 1em;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.displaySissyEnding = function (sissyPath) {
+	document.write("Test: sissyPath");
+}</script><tw-tag name="ending" color="green"></tw-tag>,<tw-tag name="hub" color="purple"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="400,199" size="100,100">(set: $sissyParade to (a:&quot;claire/coward&quot;, &quot;claire/proud&quot;))
+
+For greater glory all across campus, you have decided to take part in the *Great Panty Raid Challenge*. As agreed across all factions involved, you are informed of the rules of the raid before you begin:
 
 0. The objective is to purloin one piece of underwear (panties) from each of the marked houses in the female dorm district and return.
 0. Returning with less loot than expected will have you deemed a loser.
@@ -65,7 +74,8 @@ It&#39;s time to head out...
 (if: $panties contains &quot;Claire&quot;)[(replace: ?claire)[*Claire&#39;s Dorm*]]
 (if: $panties contains &quot;Ingrid&quot;)[(replace: ?ingrid)[*Ingrid&#39;s Dorm*]]
 (if: $panties contains &quot;Shawna&quot;)[(replace: ?shawna)[*Shawna&#39;s Dorm*]]
-(if: $panties contains &quot;Donna&quot;)[(replace: ?donna)[*Donna&#39;s Dorm*]]</tw-passagedata><tw-passagedata pid="3" name="Claire&#39;s Dorm" tags="" position="400,500" size="100,100">Claire is certainly the most approachable and fun-loving of the bunch, exuding pleasant energy and good vibes from the tip of the pom-poms on her novelty converse shoes to the top of her pixie-cut and dyed hair.
+(if: $panties contains &quot;Donna&quot;)[(replace: ?donna)[*Donna&#39;s Dorm*]]
+</tw-passagedata><tw-passagedata pid="3" name="Claire&#39;s Dorm" tags="" position="400,500" size="100,100">Claire is certainly the most approachable and fun-loving of the bunch, exuding pleasant energy and good vibes from the tip of the pom-poms on her novelty converse shoes to the top of her pixie-cut and dyed hair.
 
 Her room is very tidy and organized, probably not a place where finding a pair of panties would be hard at all. On her |bed&gt;[bed], a |cushions&gt;[pile of cushions] is neatly arranged. Her vanity has |vanity&gt;[many drawers] and upon it is |case&gt;[a large and very pink make-up case].
 
@@ -148,7 +158,7 @@ From the porch, you can see the pink limo arriving, bringing inside the perpetra
 &quot;Don&#39;t worry, hon.&quot; She says, as the tinted windows roll up and the car speeds down the road. &quot;[[We&#39;re gonna take real good care of you...-&gt;Utter Failure]]&quot;</tw-passagedata><tw-passagedata pid="5" name="New Game" tags="startup" position="202,199" size="100,100">(set: $turns to 0)
 (set: $panties to (a:))
 
-(set: $donna_secret to false)</tw-passagedata><tw-passagedata pid="6" name="Caught By Claire" tags="" position="198,499" size="100,100">(set: $pro_tip to &quot;You took too long and Claire has caught up with you... try being faster next time!&quot;)
+(set: $donnaSecret to false)</tw-passagedata><tw-passagedata pid="6" name="Caught By Claire" tags="" position="198,499" size="100,100">(set: $pro_tip to &quot;You took too long and Claire has caught up with you... try being faster next time!&quot;)
 
 Suddenly, the lights go on.
 
@@ -163,11 +173,19 @@ She laughed to herself, calmly making her way toward you. You eyed the window, w
 
 &lt;img src=&quot;img/panty/claire/coward.png&quot;/&gt;
 
-&quot;...a wimpy sissy!&quot;</tw-passagedata><tw-passagedata pid="8" name="Proud Sissy" tags="ending" position="206,656" size="100,100">&quot;Not going to try and run away?&quot; She said, smiling. &quot;Good boy. You&#39;re a proud one, ready to take the punishment you deserve...&quot;
+&quot;...a wimpy sissy!&quot;
+{
+(if: (count: $sissyParade, &quot;claire/coward&quot;) is 0)
+[(set: $sissyParade to it + (a:&quot;claire/coward&quot;))]
+}</tw-passagedata><tw-passagedata pid="8" name="Proud Sissy" tags="ending" position="206,656" size="100,100">&quot;Not going to try and run away?&quot; She said, smiling. &quot;Good boy. You&#39;re a proud one, ready to take the punishment you deserve...&quot;
 
 &lt;img src=&quot;img/panty/claire/proud.png&quot;/&gt;
 
-&quot;...a pity that doesn&#39;t make you any less than a sissy, dear!&quot;</tw-passagedata><tw-passagedata pid="9" name="Red Handed" tags="ending" position="200,343" size="100,100">You enter the house where the bros that would act as the judges for your Challenge were awaiting you... only to find none of them there. Instead, you&#39;re greeted by 8 female figures, menacingly waiting for you.
+&quot;...a pity that doesn&#39;t make you any less than a sissy, dear!&quot;
+{
+(if: (count: $sissyParade, &quot;claire/proud&quot;) is 0)
+[(set: $sissyParade to it + (a:&quot;claire/proud&quot;))]
+}</tw-passagedata><tw-passagedata pid="9" name="Red Handed" tags="ending" position="200,343" size="100,100">You enter the house where the bros that would act as the judges for your Challenge were awaiting you... only to find none of them there. Instead, you&#39;re greeted by 8 female figures, menacingly waiting for you.
 
 &quot;Well, well, well... looks like yet another loser attempted the Panty Raid...&quot; Ingrid started, her voice sliding off her mouth as if she savored every word.
 
@@ -201,10 +219,20 @@ Ingrid comes into the room, but you have the impression that she has been watchi
 [[Slip away while she laughs-&gt;Coward Bitch]]
 [[Wait for her to be done-&gt;Resigned]]</tw-passagedata><tw-passagedata pid="13" name="Utter Failure" tags="ending" position="1001,301" size="100,100">&lt;img src=&quot;img/panty/loser/loser1.png&quot; /&gt;</tw-passagedata><tw-passagedata pid="14" name="New Game+" tags="" position="335,77" size="100,100">(display: &quot;New Game&quot;)
 (goto: &quot;The Dorm Hub&quot;)</tw-passagedata><tw-passagedata pid="15" name="Sidebar" tags="header" position="802,72" size="100,100">(replace: ?Sidebar)[
-|hall-of-shame)[ [[Hall of Shame]] ]
+|hall-of-shame&gt;[ [[The Parade of Sissies]] ]
 ]
 
-(if: length of (history: where its tags contains &quot;ending&quot;) &gt; 0)[(show: ?hall-of-shame)]</tw-passagedata><tw-passagedata pid="16" name="Hall of Shame" tags="" position="963,74" size="100,100">(link-undo:&quot;Go Back&quot;)</tw-passagedata><tw-passagedata pid="17" name="Try Again?" tags="footer" position="513,78" size="100,100">(if: tags of (passage:) contains &quot;ending&quot;)[
+(if: length of (history: where its tags contains &quot;ending&quot;) &gt; 0)[(show: ?hall-of-shame)]</tw-passagedata><tw-passagedata pid="16" name="The Parade of Sissies" tags="" position="963,74" size="100,100">(link-undo:&quot;Go Back&quot;)
+
+{
+(set: $sissy to 1)
+(live: 1s)[
+	(transition: &quot;slide-right&quot;)+(transition-time: 1s)[
+	&lt;img class=&quot;sissy-on-parade&quot; src=&quot;/img/panty/(nth: _sissy, $sissyParade).png&quot; /&gt;]
+	(set: $sissy to it + 1)
+	(if: $sissy &gt; $sissyParade&#39;s length)[(stop:)]
+]
+}</tw-passagedata><tw-passagedata pid="17" name="Try Again?" tags="footer" position="513,78" size="100,100">(if: tags of (passage:) contains &quot;ending&quot;)[
 ----
 *It seems like you&#39;ve met with an awfully frilly fate...* [[Try again?-&gt;New Game+]]
 ]</tw-passagedata><tw-passagedata pid="18" name="Coward Bitch" tags="ending" position="726,651" size="100,100">She nabs you by the ankle, pulling you back in. &quot;Oh, no, no, no... no fleeing. You know that wouldn&#39;t do you any good anyway... I&#39;d simply call the bros and let them know who caught you... you&#39;d be a sitting prey for my future ire anyway...&quot;
@@ -213,7 +241,11 @@ She drags you across the carpet. &quot;I could delay this inevitability, like yo
 
 &lt;img src=&quot;img/panty/ingrid/coward.png&quot;/&gt;
 
-&quot;...Consider this the retribution for your attempt to flee!&quot;</tw-passagedata><tw-passagedata pid="19" name="Resigned" tags="" position="876,651" size="100,100">After a long while, she&#39;s done laughing. &quot;Well... let&#39;s start.&quot; She says, wiping tears off the sides of her eyes.
+&quot;...Consider this the retribution for your attempt to flee!&quot;
+{
+(if: (count: $sissyParade, &quot;ingrid/coward&quot;) is 0)
+[(set: $sissyParade to it + (a:&quot;ingrid/coward&quot;))]
+}</tw-passagedata><tw-passagedata pid="19" name="Resigned" tags="" position="876,651" size="100,100">After a long while, she&#39;s done laughing. &quot;Well... let&#39;s start.&quot; She says, wiping tears off the sides of her eyes.
 
 &quot;I&#39;d like to know you better beforehand, though.&quot; She says, gently conducting you by the shoulder, picking the panties back discreetly from your hands while she has you sitting on a chair. &quot;I think this is going to be a lot more fun if I understand you. You&#39;re, like, not even a year in this college? Maybe you thought this would be a good foot forward, hm?&quot;
 
@@ -278,7 +310,7 @@ Cabinets filled with baby powder, oil and packs of diapers; a high table with a 
 
 You walk backward and close the dor again, feeling like you&#39;ve seen something you realy shouldn&#39;t.
 ]
-(set:$donna_secret to true)
+(set:$donnaSecret to true)
 ]
 
 (click: ?exit)[(if: $turns &gt; 5)[(goto: &quot;Caught By Donna&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]</tw-passagedata><tw-passagedata pid="21" name="Shawna&#39;s Dorm" tags="" position="601,650" size="100,100">Shawna&#39;s room was a mess, and yet the question half-seriously floating in your mind at the time was whether you&#39;d even find any panties at all in there. Not to pass judgment, but you were sure one didn&#39;t get such reputation for nothing, really...
@@ -364,7 +396,7 @@ Neat... but when you remember what you were doing, you realize there was nothing
 &quot;My, my, my... it seems like a naughty boy has sneaked into my room...&quot; She speaks with the tone of someone&#39;s old aunt, and she towers over you menacingly.
 
 &quot;Don&#39;t worry, dear, I&#39;m going to treat you nicely...&quot; 
-(if: $donna_secret)[She winks. &quot;You know that very well, don&#39;t you? You&#39;ve seen my little secret...&quot;
+(if: $donnaSecret)[She winks. &quot;You know that very well, don&#39;t you? You&#39;ve seen my little secret...&quot;
 
 You gulp, frantically picking at the secure lock, trying in vain to open the window again.
 
@@ -387,13 +419,21 @@ You gulp, frantically picking at the secure lock, trying in vain to open the win
 
 &lt;img src=&quot;img/panty/shawna/stripper.png&quot; /&gt;
 
-&quot;But it is a nice stripper name, isn&#39;t it?&quot;</tw-passagedata><tw-passagedata pid="26" name="Slutshaming" tags="ending" position="807,1227" size="100,100">&quot;Oh, really?!&quot; She was furious, suddenly making you realize you made a huge mistake. &quot;Who told you that, huh? These supposed &#39;everyone else&#39;? The few that admit that they never even had the chance and are bitter about it? Those gossiping Allison bitches?&quot;
+&quot;But it is a nice stripper name, isn&#39;t it?&quot;
+{
+(if: (count: $sissyParade, &quot;shawna/stripper&quot;) is 0)
+[(set: $sissyParade to it + (a:&quot;shawna/stripper&quot;))]
+}</tw-passagedata><tw-passagedata pid="26" name="Slutshaming" tags="ending" position="807,1227" size="100,100">&quot;Oh, really?!&quot; She was furious, suddenly making you realize you made a huge mistake. &quot;Who told you that, huh? These supposed &#39;everyone else&#39;? The few that admit that they never even had the chance and are bitter about it? Those gossiping Allison bitches?&quot;
 
 &quot;Oh, no, don&#39;t even bother trying to apologize. You said enough already, dear. Allow me to repay you for that honesty...&quot;
 
 &lt;img src=&quot;img/panty/shawna/hooker.png&quot; /&gt;
 
-&quot;...by giving you the chance to look just like someone who&#39;ll get in bed with a lot of people, too!&quot;</tw-passagedata><tw-passagedata pid="27" name="Nice Guy" tags="ending" position="959,1229" size="100,100">&quot;Oh, please!&quot; She scoffed. &quot;Just because you&#39;re nice you think you deserve gratification? How pathetic...&quot;
+&quot;...by giving you the chance to look just like someone who&#39;ll get in bed with a lot of people, too!&quot;
+{
+(if: (count: $sissyParade, &quot;shawna/hooker&quot;) is 0)
+[(set: $sissyParade to it + (a:&quot;shawna/hooker&quot;))]
+}</tw-passagedata><tw-passagedata pid="27" name="Nice Guy" tags="ending" position="959,1229" size="100,100">&quot;Oh, please!&quot; She scoffed. &quot;Just because you&#39;re nice you think you deserve gratification? How pathetic...&quot;
 
 &quot;Nice guys like you are never really that nice, aren&#39;t they? I bet that if we were not in this situation, I&#39;d just say no and you&#39;d simply lie and brag around... or maybe resent the other braggarts who supposedly got what you couldn&#39;t!&quot;
 
@@ -401,39 +441,71 @@ You gulp, frantically picking at the secure lock, trying in vain to open the win
 
 &lt;img src=&quot;img/panty/shawna/skank.png&quot; /&gt;
 
-&quot;...now you can tell everyone that I made you my bitch!&quot;</tw-passagedata><tw-passagedata pid="28" name="Revenge of the Nerds" tags="ending" position="737,801" size="100,100">&quot;Oh, no... I bet you were so bad to all the nerds, weren&#39;t you?&quot; She scoffs. &quot;Well, good thing time has passed and things have changed, right?&quot;
+&quot;...now you can tell everyone that I made you my bitch!&quot;
+{
+(if: (count: $sissyParade, &quot;shawna/skank&quot;) is 0)
+[(set: $sissyParade to it + (a:&quot;shawna/skank&quot;))]
+}</tw-passagedata><tw-passagedata pid="28" name="Revenge of the Nerds" tags="ending" position="737,801" size="100,100">&quot;Oh, no... I bet you were so bad to all the nerds, weren&#39;t you?&quot; She scoffs. &quot;Well, good thing time has passed and things have changed, right?&quot;
 
 &lt;img src=&quot;img/panty/ingrid/nerd.png&quot;/&gt;
 
-&quot;But I think now is the time for reparations!&quot;</tw-passagedata><tw-passagedata pid="29" name="Smell like Teen Spirit" tags="ending" position="885,813" size="100,100">&quot;Hmm... keeping to yourself, burying your nose into your own interests... I bet some people might have told you to go outside and have some fun?&quot;
+&quot;But I think now is the time for reparations!&quot;
+{
+(if: (count: $sissyParade, &quot;ingrid/nerd&quot;) is 0)
+[(set: $sissyParade to it + (a:&quot;ingrid/nerd&quot;))]
+}</tw-passagedata><tw-passagedata pid="29" name="Smell like Teen Spirit" tags="ending" position="885,813" size="100,100">&quot;Hmm... keeping to yourself, burying your nose into your own interests... I bet some people might have told you to go outside and have some fun?&quot;
 
 Ingrid smiled. &quot;Well, I have good news for you, dear...&quot;
 
 &lt;img src=&quot;img/panty/ingrid/cheer.png&quot; /&gt;
 
-&quot;Tonight you&#39;re going to be the source of all the fun!&quot;</tw-passagedata><tw-passagedata pid="30" name="Back to School" tags="ending" position="1042,799" size="100,100">&quot;No talk? Really?&quot; She sighed, annoyed but amused. &quot;Guess you didn&#39;t have a very remarkable high school experience? That&#39;s sad...&quot;
+&quot;Tonight you&#39;re going to be the source of all the fun!&quot;
+{
+(if: (count: $sissyParade, &quot;ingrid/cheer&quot;) is 0)
+[(set: $sissyParade to it + (a:&quot;ingrid/cheer&quot;))]
+}</tw-passagedata><tw-passagedata pid="30" name="Back to School" tags="ending" position="1042,799" size="100,100">&quot;No talk? Really?&quot; She sighed, annoyed but amused. &quot;Guess you didn&#39;t have a very remarkable high school experience? That&#39;s sad...&quot;
 
 &quot;High school is the time when we form our personality, the years were we are most vulnerable to the emotions and experiences that mold our adult selves. It can&#39;t be denied, honey.&quot;
 
 &lt;img src=&quot;img/panty/ingrid/school.png&quot; /&gt;
 
-&quot;So, how about a little crash course for ya?&quot;</tw-passagedata><tw-passagedata pid="31" name="Donna&#39;s Sissy Boy" tags="ending" position="0,951" size="100,100">&quot;Alright, then. Let me get you all dressed up...&quot;
+&quot;So, how about a little crash course for ya?&quot;
+{
+(if: (count: $sissyParade, &quot;ingrid/school&quot;) is 0)
+[(set: $sissyParade to it + (a:&quot;ingrid/school&quot;))]
+}</tw-passagedata><tw-passagedata pid="31" name="Donna&#39;s Sissy Boy" tags="ending" position="0,951" size="100,100">&quot;Alright, then. Let me get you all dressed up...&quot;
 
 &lt;img src=&quot;img/panty/donna/baby_blue.png&quot;/&gt;
 
-&quot;What&#39;s wrong, dear? You&#39;re wearing blue clothes, aren&#39;t you? But don&#39;t worry. I&#39;m going to make sure everyone knows exactly what you are...&quot;</tw-passagedata><tw-passagedata pid="32" name="Donna&#39;s Sissy Girl" tags="ending" position="130,951" size="100,100">&quot;Alright, then. Let me get you all dressed up...&quot;
+&quot;What&#39;s wrong, dear? You&#39;re wearing blue clothes, aren&#39;t you? But don&#39;t worry. I&#39;m going to make sure everyone knows exactly what you are...&quot;
+{
+(if: (count: $sissyParade, &quot;donna/baby_blue&quot;) is 0)
+[(set: $sissyParade to it + (a:&quot;donna/baby_blue&quot;))]
+}</tw-passagedata><tw-passagedata pid="32" name="Donna&#39;s Sissy Girl" tags="ending" position="130,951" size="100,100">&quot;Alright, then. Let me get you all dressed up...&quot;
 
 &lt;img src=&quot;img/panty/donna/baby_magenta.png&quot;/&gt;
 
-&quot;There you go. All nice and padded. Now let&#39;s get you in your stroller for your very first outing as my lovely baby girl...&quot;</tw-passagedata><tw-passagedata pid="33" name="Cozy Sissy" tags="ending" position="280,951" size="100,100">&quot;I figured as much, all dressed in those black clothes... but don&#39;t worry, dear!&quot;
+&quot;There you go. All nice and padded. Now let&#39;s get you in your stroller for your very first outing as my lovely baby girl...&quot;
+{
+(if: (count: $sissyParade, &quot;donna/baby_magenta&quot;) is 0)
+[(set: $sissyParade to it + (a:&quot;donna/baby_magenta&quot;))]
+}</tw-passagedata><tw-passagedata pid="33" name="Cozy Sissy" tags="ending" position="280,951" size="100,100">&quot;I figured as much, all dressed in those black clothes... but don&#39;t worry, dear!&quot;
 
 &lt;img src=&quot;img/panty/donna/cold.png&quot;/&gt;
 
-&quot;Now you&#39;ll surely not feel any cold when you&#39;re out on your parade!&quot;</tw-passagedata><tw-passagedata pid="34" name="Breezy Sissy" tags="ending" position="430,951" size="100,100">&quot;Really? If that&#39;s so, you shouldn&#39;t be wearing all those padded black clothes...&quot;
+&quot;Now you&#39;ll surely not feel any cold when you&#39;re out on your parade!&quot;
+{
+(if: (count: $sissyParade, &quot;donna/cold&quot;) is 0)
+[(set: $sissyParade to it + (a:&quot;donna/cold&quot;))]
+}</tw-passagedata><tw-passagedata pid="34" name="Breezy Sissy" tags="ending" position="430,951" size="100,100">&quot;Really? If that&#39;s so, you shouldn&#39;t be wearing all those padded black clothes...&quot;
 
 &lt;img src=&quot;img/panty/donna/bikini.png&quot;/&gt;
 
-&quot;See? This is much less warming. Now you won&#39;t be sweating when you walk out there... well, not because of the heat, I&#39;m sure!&quot;</tw-passagedata></tw-storydata>
+&quot;See? This is much less warming. Now you won&#39;t be sweating when you walk out there... well, not because of the heat, I&#39;m sure!&quot;
+{
+(if: (count: $sissyParade, &quot;donna/bikini&quot;) is 0)
+[(set: $sissyParade to it + (a:&quot;donna/bikini&quot;))]
+}</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
