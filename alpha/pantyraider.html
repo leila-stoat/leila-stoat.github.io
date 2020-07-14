@@ -45,9 +45,7 @@ img.sissy-on-parade {
   margin-top: 1em;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.displaySissyEnding = function (sissyPath) {
 	document.write("Test: sissyPath");
-}</script><tw-tag name="ending" color="green"></tw-tag>,<tw-tag name="hub" color="purple"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="400,199" size="100,100">(set: $sissyParade to (a:&quot;claire/coward&quot;, &quot;claire/proud&quot;))
-
-For greater glory all across campus, you have decided to take part in the *Great Panty Raid Challenge*. As agreed across all factions involved, you are informed of the rules of the raid before you begin:
+}</script><tw-tag name="ending" color="green"></tw-tag>,<tw-tag name="hub" color="purple"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="400,199" size="100,100">For greater glory all across campus, you have decided to take part in the *Great Panty Raid Challenge*. As agreed across all factions involved, you are informed of the rules of the raid before you begin:
 
 0. The objective is to purloin one piece of underwear (panties) from each of the marked houses in the female dorm district and return.
 0. Returning with less loot than expected will have you deemed a loser.
@@ -67,15 +65,15 @@ It&#39;s time to head out...
 0. Coming Soon
 (if: length of $panties is 6) [0. [[Dean Trouzerdonner&#39;s Dorm]] ]
 
+{
+  (if: length of $panties is 6) [ [[Return triumphantly with your Haul-&gt;Red Handed]] ]
+  (if: length of $panties &gt; 0)[ [[Return with your Haul-&gt;Home]] ]
 
-(if: length of $panties is 6) [ [[Return triumphantly with your Haul-&gt;Red Handed]] ]
-(if: length of $panties &gt; 0)[ [[Return with your Haul-&gt;Home]] ]
-
-(if: $panties contains &quot;Claire&quot;)[(replace: ?claire)[*Claire&#39;s Dorm*]]
-(if: $panties contains &quot;Ingrid&quot;)[(replace: ?ingrid)[*Ingrid&#39;s Dorm*]]
-(if: $panties contains &quot;Shawna&quot;)[(replace: ?shawna)[*Shawna&#39;s Dorm*]]
-(if: $panties contains &quot;Donna&quot;)[(replace: ?donna)[*Donna&#39;s Dorm*]]
-</tw-passagedata><tw-passagedata pid="3" name="Claire&#39;s Dorm" tags="" position="400,500" size="100,100">Claire is certainly the most approachable and fun-loving of the bunch, exuding pleasant energy and good vibes from the tip of the pom-poms on her novelty converse shoes to the top of her pixie-cut and dyed hair.
+  (if: $panties contains &quot;Claire&quot;)[(replace: ?claire)[*Claire&#39;s Dorm*]]
+  (if: $panties contains &quot;Ingrid&quot;)[(replace: ?ingrid)[*Ingrid&#39;s Dorm*]]
+  (if: $panties contains &quot;Shawna&quot;)[(replace: ?shawna)[*Shawna&#39;s Dorm*]]
+  (if: $panties contains &quot;Donna&quot;)[(replace: ?donna)[*Donna&#39;s Dorm*]]
+}</tw-passagedata><tw-passagedata pid="3" name="Claire&#39;s Dorm" tags="" position="400,500" size="100,100">Claire is certainly the most approachable and fun-loving of the bunch, exuding pleasant energy and good vibes from the tip of the pom-poms on her novelty converse shoes to the top of her pixie-cut and dyed hair.
 
 Her room is very tidy and organized, probably not a place where finding a pair of panties would be hard at all. On her |bed&gt;[bed], a |cushions&gt;[pile of cushions] is neatly arranged. Her vanity has |vanity&gt;[many drawers] and upon it is |case&gt;[a large and very pink make-up case].
 
@@ -83,68 +81,69 @@ The closet on the side has a |closet&gt;[pair of doors] as well as a few |jackpo
 
 |report&gt;[]
 |exit)[Make your way out of here]
+{
+  (click: ?bed)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+	  You look under the bed, but all you find are socks. Used socks. You didn&#39;t peg Claire to be this much of a slob...
+  ]
+  ]
 
-(click: ?bed)[
-(set: $turns to it + 1)
-(append: ?report)[
-	You look under the bed, but all you find are socks. Used socks. You didn&#39;t peg Claire to be this much of a slob...
-]
-]
+  (click: ?cushions)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  Rummaging through the cushions, you find a small chest filled with money. Neat! (But you won&#39;t actually pick it up, stealing is not part of the challenge!)
+  ]
+  ]
 
-(click: ?cushions)[
-(set: $turns to it + 1)
-(append: ?report)[
-Rummaging through the cushions, you find a small chest filled with money. Neat! (But you won&#39;t actually pick it up, stealing is not part of the challenge!)
-]
-]
+  (click: ?chest)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  Inside the chest are nothing but stuffed toys and china dolls. Is this girl a collector, or just refuses to let go of her childhood treasures?
+  ]
+  ]
 
-(click: ?chest)[
-(set: $turns to it + 1)
-(append: ?report)[
-Inside the chest are nothing but stuffed toys and china dolls. Is this girl a collector, or just refuses to let go of her childhood treasures?
-]
-]
+  (click: ?vanity)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  The vanity drawers are filled with jewelry and accessories. Accidentally, you bump into |secret&gt;[a hollow panel] in the depths of a drawer...
+  ]
+  ]
 
-(click: ?vanity)[
-(set: $turns to it + 1)
-(append: ?report)[
-The vanity drawers are filled with jewelry and accessories. Accidentally, you bump into |secret&gt;[a hollow panel] in the depths of a drawer...
-]
-]
+  (click: ?secret)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  You manage to dislodge the fake panel and find a box with lovely decorations painted on its lid. Inside, there are sex toys.
 
-(click: ?secret)[
-(set: $turns to it + 1)
-(append: ?report)[
-You manage to dislodge the fake panel and find a box with lovely decorations painted on its lid. Inside, there are sex toys.
+  Well, that was a pleasant surprise!
+  ]
+  ]
 
-Well, that was a pleasant surprise!
-]
-]
+  (click: ?case)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  Inside the make-up case there is... make-up. Are you really sure you should be wasting your time looking in weird places like this?
+  ]
+  ]
 
-(click: ?case)[
-(set: $turns to it + 1)
-(append: ?report)[
-Inside the make-up case there is... make-up. Are you really sure you should be wasting your time looking in weird places like this?
-]
-]
+  (click: ?closet)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  Claire&#39;s clothes are hung inside the closet, all treading the boundaries between girly and practical. Nothing less than expected from the resident Pixie Manic Girl...
+  ]
+  ]
 
-(click: ?closet)[
-(set: $turns to it + 1)
-(append: ?report)[
-Claire&#39;s clothes are hung inside the closet, all treading the boundaries between girly and practical. Nothing less than expected from the resident Pixie Manic Girl...
-]
-]
+  (click: ?jackpot)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  Opening the closet drawers, you find... *a pair of pink frilly panties with white heart print!* Jackpot!
+  ]
+  (show: ?exit)
+  (set: $panties to it + (a: &quot;Claire&quot;))
+  ]
 
-(click: ?jackpot)[
-(set: $turns to it + 1)
-(append: ?report)[
-Opening the closet drawers, you find... *a pair of pink frilly panties with white heart print!* Jackpot!
-]
-(show: ?exit)
-(set: $panties to it + (a: &quot;Claire&quot;))
-]
-
-(click: ?exit)[(if: $turns &gt; 3)[(goto: &quot;Caught By Claire&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]</tw-passagedata><tw-passagedata pid="4" name="Home" tags="" position="801,302" size="100,100">You enter the house where the bros that would act as the judges for your Challenge were awaiting you. Almost trembling with excitement, you dump the load of panties on the center table. Everyone at once starts counting mentally in heir heads...
+  (click: ?exit)[(if: $turns &gt; 3)[(goto: &quot;Caught By Claire&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]
+}</tw-passagedata><tw-passagedata pid="4" name="Home" tags="" position="801,302" size="100,100">You enter the house where the bros that would act as the judges for your Challenge were awaiting you. Almost trembling with excitement, you dump the load of panties on the center table. Everyone at once starts counting mentally in heir heads...
 
 (set: $panties_number to length of $panties)
 &quot;... $panties_number? Are you kidding me?&quot; The broest of them say, confronting you. &quot;That won&#39;t do, loser. You knew of the consequences, so you&#39;ll be handed off... to be punished.&quot;
@@ -203,14 +202,13 @@ You tried to argue, only to be silenced by a wad of 8 panties at once.
 
 Her room is organized and clean, not many places to search, actually... but you have the clear impression that it will be anything but an easy task.
 
-
-
 |report&gt;[]
 |exit)[Get the hell outta here]
+{
+  (click: ?exit)[(if: $turns &gt; 6)[(goto: &quot;Caught By Ingrid&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]
 
-(click: ?exit)[(if: $turns &gt; 6)[(goto: &quot;Caught By Ingrid&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]
-
-[[Fail on Purpose-&gt;Caught By Ingrid]]</tw-passagedata><tw-passagedata pid="11" name="Dean Trouzerdonner&#39;s Dorm" tags="" position="650,152" size="100,100">*A last challenge for the experienced player... and ultimately a punishment for their hubris*</tw-passagedata><tw-passagedata pid="12" name="Caught By Ingrid" tags="" position="801,501" size="100,100">&quot;Well, well, well... what do we have here...&quot;
+  [[Fail on Purpose-&gt;Caught By Ingrid]]
+}</tw-passagedata><tw-passagedata pid="11" name="Dean Trouzerdonner&#39;s Dorm" tags="" position="650,152" size="100,100">*A last challenge for the experienced player... and ultimately a punishment for their hubris*</tw-passagedata><tw-passagedata pid="12" name="Caught By Ingrid" tags="" position="801,501" size="100,100">&quot;Well, well, well... what do we have here...&quot;
 
 Ingrid comes into the room, but you have the impression that she has been watching you for a long time, only waiting for you to make your way out to finally pounce at you at the last possible moment.
 
@@ -261,59 +259,60 @@ Her large room is furnished with a collection of kitsch and girly items such as 
 
 |report&gt;[]
 |exit)[Make your way out of here]
+{  
+  (click: ?vanity)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  A pink vanity with so many creams and flasks with labes like &quot;anti-aging&quot; and &quot;vintage charm&quot;... You feel 5 years older just by being exposed to all that!
+  ]
+  ]
 
-(click: ?vanity)[
-(set: $turns to it + 1)
-(append: ?report)[
-A pink vanity with so many creams and flasks with labes like &quot;anti-aging&quot; and &quot;vintage charm&quot;... You feel 5 years older just by being exposed to all that!
-]
-]
+  (click: ?chest)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  The big chest is filled with |sheets&gt;[linens and bed sheets]. Is everything in this room going to make you feel like you&#39;re rummaging through your grandma&#39;s things?
+  ]
+  ]
 
-(click: ?chest)[
-(set: $turns to it + 1)
-(append: ?report)[
-The big chest is filled with |sheets&gt;[linens and bed sheets]. Is everything in this room going to make you feel like you&#39;re rummaging through your grandma&#39;s things?
-]
-]
+  (click: ?sheets)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  Under all those sheets smelling of fresh cloth softener, you find, finally... *a gaudy and large set of lacy beige panties.* Jackpot?!
+  ]
+  (show: ?exit)
+  (set: $panties to it + (a: &quot;Donna&quot;))
+  ]
 
-(click: ?sheets)[
-(set: $turns to it + 1)
-(append: ?report)[
-Under all those sheets smelling of fresh cloth softener, you find, finally... *a gaudy and large set of lacy beige panties.* Jackpot?!
-]
-(show: ?exit)
-(set: $panties to it + (a: &quot;Donna&quot;))
-]
+  (click: ?trash)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  There are tissues and lots of coupons in the trash, but no panties... duh.
+  ]
+  ]
 
-(click: ?trash)[
-(set: $turns to it + 1)
-(append: ?report)[
-There are tissues and lots of coupons in the trash, but no panties... duh.
-]
-]
+  (click: ?closet)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  Claire&#39;s closet is large, which surely accomodates her large clothing, but was not spatious due to all the fur coats and padded boots filling the place.
 
-(click: ?closet)[
-(set: $turns to it + 1)
-(append: ?report)[
-Claire&#39;s closet is large, which surely accomodates her large clothing, but was not spatious due to all the fur coats and padded boots filling the place.
+  Sadly, you couldn&#39;t find the panties there... but there&#39;s |secret&gt;[some light shining near the floor, behind the wall on the eastern side.]
+  ]
+  ]
 
-Sadly, you couldn&#39;t find the panties there... but there&#39;s |secret&gt;[some light shining near the floor, behind the wall on the eastern side.]
-]
-]
+  (click: ?secret)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  The wall opens up near the corner, and inside there is a pristine and short hallway. It leads right into a room that contains the most unexpected set of things in that whole dorm.
 
-(click: ?secret)[
-(set: $turns to it + 1)
-(append: ?report)[
-The wall opens up near the corner, and inside there is a pristine and short hallway. It leads right into a room that contains the most unexpected set of things in that whole dorm.
+  Cabinets filled with baby powder, oil and packs of diapers; a high table with a padded top, with four leather shackles; cameras mounted all around...
 
-Cabinets filled with baby powder, oil and packs of diapers; a high table with a padded top, with four leather shackles; cameras mounted all around...
+  You walk backward and close the dor again, feeling like you&#39;ve seen something you realy shouldn&#39;t.
+  ]
+  (set:$donnaSecret to true)
+  ]
 
-You walk backward and close the dor again, feeling like you&#39;ve seen something you realy shouldn&#39;t.
-]
-(set:$donnaSecret to true)
-]
-
-(click: ?exit)[(if: $turns &gt; 5)[(goto: &quot;Caught By Donna&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]</tw-passagedata><tw-passagedata pid="21" name="Shawna&#39;s Dorm" tags="" position="601,650" size="100,100">Shawna&#39;s room was a mess, and yet the question half-seriously floating in your mind at the time was whether you&#39;d even find any panties at all in there. Not to pass judgment, but you were sure one didn&#39;t get such reputation for nothing, really...
+  (click: ?exit)[(if: $turns &gt; 5)[(goto: &quot;Caught By Donna&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]
+}</tw-passagedata><tw-passagedata pid="21" name="Shawna&#39;s Dorm" tags="" position="601,650" size="100,100">Shawna&#39;s room was a mess, and yet the question half-seriously floating in your mind at the time was whether you&#39;d even find any panties at all in there. Not to pass judgment, but you were sure one didn&#39;t get such reputation for nothing, really...
 
 The bed was a single mattress bed with a |sheets&gt;[nest of sheets and blankets] that were definitely left as they were since she got up that morning. The |closet&gt;[closet on the far wall was small], and in place of a vanity she just had a small table where |box&gt;[her make-up box sat], and a mirror was leaning against the wall.
 
@@ -321,72 +320,72 @@ The walls were lined by posters, |magazine&gt;[some centerpiece from a teen maga
 
 |report&gt;[]
 |exit)[Make your way out of here]
+{
+  (click: ?sheets)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  The messy sheets are thrown all over the bed and reveal nothing underneath but |mattress&gt;[the mattress itself]. Talk about a waste of time!
+  ]
+  ]
 
-(click: ?sheets)[
-(set: $turns to it + 1)
-(append: ?report)[
-The messy sheets are thrown all over the bed and reveal nothing underneath but |mattress&gt;[the mattress itself]. Talk about a waste of time!
-]
-]
+  (click: ?mattress)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  Your hand goes under the mattress, feeling inch by inch... until something touches your fingers and you pull it out.
 
-(click: ?mattress)[
-(set: $turns to it + 1)
-(append: ?report)[
-Your hand goes under the mattress, feeling inch by inch... until something touches your fingers and you pull it out.
+  The panties come out from under the mattress. *Jackpot!*
+  ]
+  (show: ?exit)
+  (set: $panties to it + (a: &quot;Shawna&quot;))
+  ]
 
-The panties come out from under the mattress. *Jackpot!*
-]
-(show: ?exit)
-(set: $panties to it + (a: &quot;Shawna&quot;))
-]
+  (click: ?closet)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  Inside the closet are... clothes. All of the usual Shawna attires, short skirts and low cut tops... besides sundresses and long pajamas? Unexpected, I guess...
+  ]
+  ]
 
-(click: ?closet)[
-(set: $turns to it + 1)
-(append: ?report)[
-Inside the closet are... clothes. All of the usual Shawna attires, short skirts and low cut tops... besides sundresses and long pajamas? Unexpected, I guess...
-]
-]
+  (click: ?box)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  The make-up box is filled with deep red lipstick, black mascara and purple nail polish bottles, about three copies of each, all of them half-used.
 
-(click: ?box)[
-(set: $turns to it + 1)
-(append: ?report)[
-The make-up box is filled with deep red lipstick, black mascara and purple nail polish bottles, about three copies of each, all of them half-used.
+  I guess hiding panties in here would be unsanitary...
+  ]
+  ]
 
-I guess hiding panties in here would be unsanitary...
-]
-]
+  (click: ?magazine)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  The spread folded paper shows a full-body photoshoot of Nick Cormorant, lead singer of some old boy band you couldn&#39;t even bother to remember the name. This seems so old it probably was kept by Shawna from her own home since her pre-teen years.
 
-(click: ?magazine)[
-(set: $turns to it + 1)
-(append: ?report)[
-The spread folded paper shows a full-body photoshoot of Nick Cormorant, lead singer of some old boy band you couldn&#39;t even bother to remember the name. This seems so old it probably was kept by Shawna from her own home since her pre-teen years.
+  There&#39;s nothing behind it, though.
+  ]
+  ]
 
-There&#39;s nothing behind it, though.
-]
-]
+  (click: ?flyer)[
+  (set: $turns to it + 1)
+  (append: ?report)[
+  The flyer advertises a concert of Lying Incubus, an indie metal band that you were sure has not existed for about a decade now.
 
-(click: ?flyer)[
-(set: $turns to it + 1)
-(append: ?report)[
-The flyer advertises a concert of Lying Incubus, an indie metal band that you were sure has not existed for about a decade now.
+  Nothing behind it, though.
+  ]
+  ]
 
-Nothing behind it, though.
-]
-]
+  (click: ?magiceye)[
+  (set: $turns to it + 2)
+  (append: ?report)[
+  The pyschedelic patterns of the poster call for your focus, promising something hidden if you could only see beyond...
 
-(click: ?magiceye)[
-(set: $turns to it + 2)
-(append: ?report)[
-The pyschedelic patterns of the poster call for your focus, promising something hidden if you could only see beyond...
+  As the image unfocuses and the shapes rearrange in your unfocused view, you can see the illusion of a horse with a fish tail, jumping right out of the paper in your direction.
 
-As the image unfocuses and the shapes rearrange in your unfocused view, you can see the illusion of a horse with a fish tail, jumping right out of the paper in your direction.
+  Neat... but when you remember what you were doing, you realize there was nothing underneath the poster.
+  ]
+  ]
 
-Neat... but when you remember what you were doing, you realize there was nothing underneath the poster.
-]
-]
-
-(click: ?exit)[(if: $turns &gt; 9)[(goto: &quot;Caught By Shawna&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]
-</tw-passagedata><tw-passagedata pid="22" name="Caught By Shawna" tags="" position="882,927" size="100,100">You were surprise by two snapping sounds, almost at once: the window closing, pulled from an arm coming from behind; and the slap that Shawna gave on your butt, mockingly.
+  (click: ?exit)[(if: $turns &gt; 9)[(goto: &quot;Caught By Shawna&quot;)](else:)[(goto: &quot;The Dorm Hub&quot;)]]
+}</tw-passagedata><tw-passagedata pid="22" name="Caught By Shawna" tags="" position="882,927" size="100,100">You were surprise by two snapping sounds, almost at once: the window closing, pulled from an arm coming from behind; and the slap that Shawna gave on your butt, mockingly.
 
 &quot;Well, well... you were so close, panty raider!&quot; She smiled and winked. &quot;But it seems you were caught. You&#39;re mine now. What shall I do with you...&quot;
 
