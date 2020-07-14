@@ -225,12 +225,12 @@ Ingrid comes into the room, but you have the impression that she has been watchi
 (if: length of (history: where its tags contains &quot;ending&quot;) &gt; 0)[(show: ?hall-of-shame)]</tw-passagedata><tw-passagedata pid="16" name="The Parade of Sissies" tags="" position="963,74" size="100,100">(link-undo:&quot;Go Back&quot;)
 
 {
-(set: $sissy to 1)
+(set: _sissy to 1)
 (live: 1s)[
 	(transition: &quot;slide-right&quot;)+(transition-time: 1s)[
-	&lt;img class=&quot;sissy-on-parade&quot; src=&quot;/img/panty/(nth: _sissy, $sissyParade).png&quot; /&gt;]
-	(set: $sissy to it + 1)
-	(if: $sissy &gt; $sissyParade&#39;s length)[(stop:)]
+	&lt;img class=&quot;sissy-on-parade&quot; src=&quot;/img/panty/(nth:_sissy, $sissyParade).png&quot; /&gt;]
+	(set: _sissy to it + 1)
+	(if: _sissy &gt; $sissyParade&#39;s length)[(stop:)]
 ]
 }</tw-passagedata><tw-passagedata pid="17" name="Try Again?" tags="footer" position="513,78" size="100,100">(if: tags of (passage:) contains &quot;ending&quot;)[
 ----
