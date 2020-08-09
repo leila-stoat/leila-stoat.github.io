@@ -28,16 +28,12 @@ tw-sidebar {
   line-height: 1em;
 }
 
-tw-link {
+tw-link, tw-link.visited {
   color: #f6c;
 }
 
 tw-link:hover {
   color: #848;
-}
-
-tw-link.visited {
-  color: #624;
 }
 
 img.sissy-on-parade {
@@ -77,17 +73,51 @@ As you are reading this note, I am not home at the moment of your arrival. My ap
 Be well,
 -- The Great Grunfledorf&quot;
 
-[[...Okay-&gt;The Porch]]</tw-passagedata><tw-passagedata pid="6" name="The Hall" tags="" position="412,789" size="100,100">The entrance hall is small, but so much warmer than the outside.
+[[...Okay-&gt;The Porch]]</tw-passagedata><tw-passagedata pid="6" name="The Hall" tags="" position="412,789" size="100,100">The entrance hall is small, but so much warmer than the outside. |coat&gt;[There are furry coats hanging from hooks attached to the door].
 
 [[Exit the door.-&gt;The Porch]]
 
-[[Go inside-&gt;The Living Room]]</tw-passagedata><tw-passagedata pid="7" name="The Fog" tags="" position="562,789" size="100,100">[[Return to the Cabin-&gt;The Porch]]</tw-passagedata><tw-passagedata pid="8" name="The Living Room" tags="" position="412,939" size="100,100">[[Sleep on the sofa-&gt;Sleep]]
-
+[[Go inside-&gt;The Living Room]]
+{
+(unless: $inventory contains &quot;coat&quot;)[
+	(click: ?coat)[
+		(set: $inventory to it + (a: &quot;coat&quot;))
+		(set: $action_history to it + (a: &quot;You picked up a fur coat&quot;))
+		(display: &quot;Sidebar&quot;)
+	]
+]
+}</tw-passagedata><tw-passagedata pid="7" name="The Fog" tags="" position="562,789" size="100,100">[[Return to the Cabin-&gt;The Porch]]</tw-passagedata><tw-passagedata pid="8" name="The Living Room" tags="" position="412,939" size="100,100">The living room is large and furnished. A fireplace is embedded on the wall, opposite to a large sofa. (if:$lit_fireplace)[The warm light of the fire fills the room.]
+|light_fire)[
+{(link: &quot;Light the fireplace&quot;)[
+	(set: $lit_fireplace to true)
+	(set: $action_history to it + (a: &quot;You have lit the fireplace&quot;))
+	(display: Sidebar)
+	(show: ?sofa)
+	(replace: ?light_fire)[]
+]
+}
+]
+|sofa)[
+[[Sleep on the sofa-&gt;Sleep]]
+]
 [[Go to the kitchen-&gt;The Kitchen]]
 
 [[Go to the hall-&gt;The Hall]]
 
-[[Go upstairs-&gt;The Bedroom]]</tw-passagedata><tw-passagedata pid="9" name="The Kitchen" tags="" position="337,1089" size="100,100">[[Go to the living room-&gt;The Living Room]]
+[[Go upstairs-&gt;The Bedroom]]
+
+{
+(if: $lit_fireplace)[
+	(if: $inventory contains &quot;coat&quot;)[
+		(show: ?sofa)
+	]
+]
+(else:)[
+	(if: $inventory contains &quot;firewood&quot;)[
+		(show: ?light_fire)
+	]
+]
+}</tw-passagedata><tw-passagedata pid="9" name="The Kitchen" tags="" position="337,1089" size="100,100">[[Go to the living room-&gt;The Living Room]]
 
 [[Go downstairs-&gt;The Basement]]
 
@@ -145,7 +175,7 @@ You&#39;re ready to ask who the man is, but the long beard and the robe kind of 
 
 Looking down, you see your own body and the clothes you are wearing... and you&#39;re absolutely stunned.
 
-&lt;img src=&quot;/img/house/sissy.jpg&quot;&gt;&lt;/img&gt;
+&lt;img src=&quot;img/house/sissy.jpg&quot;&gt;&lt;/img&gt;
 
 You open your mouth to comment with confusion at your sudden change of clothes, and maybe apologize for your intrusion, but the man touches a finger to your lips, shushing you.
 
@@ -154,6 +184,9 @@ You open your mouth to comment with confusion at your sudden change of clothes, 
 Your head is filled with thoughts you didn&#39;t want to think, but you were helpless against them. You just followed the man upstairs to the bedroom, and hoped that the carpet was not going to feel too rash against your dainty sissy knees...
 
 &lt;strong&gt;Congratulations! You&#39;ve succcessfully came out of the broom closet and bloomed into a lovely sissy, submitting yourself to the will of the master of the house!&lt;/strong&gt;</tw-passagedata><tw-passagedata pid="16" name="Inventory" tags="" position="717,194" size="100,100">&lt;ul id=&quot;inventory&quot;&gt;
+{
+	(if: $inventory contains &quot;coat&quot;)[&lt;li&gt;Fur Coat&lt;/li&gt;]
+}
 {
 	(if: $inventory contains &quot;bucket&quot;)[&lt;li&gt;Bucket&lt;/li&gt;]
 }
@@ -179,6 +212,7 @@ Your head is filled with thoughts you didn&#39;t want to think, but you were hel
 (set: $dinner_ready to false)
 (set: $cookes_ready to false)
 (set: $dirty_places to (a:) )
+(set: $bathtub_clean to false )
 }</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
