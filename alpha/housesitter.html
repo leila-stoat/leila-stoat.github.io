@@ -39,7 +39,7 @@ tw-link:hover {
 img.sissy-on-parade {
   display: block;
   margin-top: 1em;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="ending" color="blue"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="412,189" size="100,100">A nice vacation in the snowy mountains miles away from town was all you needed and wanted, and even planned for weeks... only for a sudden blizzard to turn what would be an afternoon of skiing followed by a cozy night of fireplace roasted marshmallows into an impossibility.
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="ending" color="blue"></tw-tag>,<tw-tag name="template" color="gray"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="412,189" size="100,100">A nice vacation in the snowy mountains miles away from town was all you needed and wanted, and even planned for weeks... only for a sudden blizzard to turn what would be an afternoon of skiing followed by a cozy night of fireplace roasted marshmallows into an impossibility.
 
 Unable to go out to fetch firewood or supplies, you knew you would not last for long enough. At some point, you&#39;d have to be confident enough that you could find your way back and take a hike to the nearest convenience store to get something to last until the blizzard ran itself out.
 
@@ -60,12 +60,22 @@ Unable to go out to fetch firewood or supplies, you knew you would not last for 
 
 [[A note-&gt;The Note]] is attached to the door, written in fine ink and cursive calligraphy. How fancy...
 
+|sweep)[{
+  (link: &quot;Sweep the Porch&quot;)[
+  	(set: $tasks_todo to $it - (a:&quot;sweep porch&quot;))
+	(set: $action_history to it + (a: &quot;You have swept the porch&quot;))
+	(display: Sidebar)
+	(replace: ?sweep)[]
+  ]
+}]
+
 |note_read)[[[Enter the cabin-&gt;The Hall]]
 
 [[Attempt to leave-&gt;The Fog]]]
 {
 (if: (history:) contains &quot;The Note&quot;)[(show: ?note_read)]
 (if: last of (history:) is &quot;The Cabin&quot;)[(show: ?from_outside)]
+(if: $tasks_todo contains &quot;sweep porch&quot; and $inventory contains &quot;broom&quot;)[(show: ?sweep)]
 }</tw-passagedata><tw-passagedata pid="5" name="The Note" tags="" position="262,789" size="100,100">&quot;To my housekeeper:
 
 As you are reading this note, I am not home at the moment of your arrival. My apologies. Make yourself at home and take care of everything in my absence, and you shall be free to rest from the cold. Otherwise, no misdeed shall be unpunished...
@@ -86,20 +96,20 @@ Be well,
 		(display: &quot;Sidebar&quot;)
 	]
 ]
-}</tw-passagedata><tw-passagedata pid="7" name="The Fog" tags="" position="562,789" size="100,100">[[Return to the Cabin-&gt;The Porch]]</tw-passagedata><tw-passagedata pid="8" name="The Living Room" tags="" position="412,939" size="100,100">The living room is large and furnished. A fireplace is embedded on the wall, opposite to a large sofa. (if:$lit_fireplace)[The warm light of the fire fills the room.]
-|light_fire)[
-{(link: &quot;Light the fireplace&quot;)[
-	(set: $lit_fireplace to true)
+}</tw-passagedata><tw-passagedata pid="7" name="The Fog" tags="" position="562,789" size="100,100">[[Return to the Cabin-&gt;The Porch]]</tw-passagedata><tw-passagedata pid="8" name="The Living Room" tags="" position="412,939" size="100,100">The living room is large and furnished. A fireplace is embedded on the wall, opposite to a large sofa. (if: $tasks_todo contains &quot;light fireplace&quot;)[The warm light of the fire fills the room.]
+
+|light_fire)[{
+  (link: &quot;Light the fireplace&quot;)[
+	(set: $tasks_todo to it - (a: &quot;light fireplace&quot;))
 	(set: $action_history to it + (a: &quot;You have lit the fireplace&quot;))
 	(display: Sidebar)
 	(show: ?sofa)
 	(replace: ?light_fire)[]
-]
-}
-]
-|sofa)[
-[[Sleep on the sofa-&gt;Sleep]]
-]
+  ]
+}]
+
+|sofa)[[[Sleep on the sofa-&gt;Sleep (Living Room)]]]
+
 [[Go to the kitchen-&gt;The Kitchen]]
 
 [[Go to the hall-&gt;The Hall]]
@@ -107,25 +117,54 @@ Be well,
 [[Go upstairs-&gt;The Bedroom]]
 
 {
-(if: $lit_fireplace)[
+  (if: not ($tasks_todo contains &quot;light fireplace&quot;))[
 	(if: $inventory contains &quot;coat&quot;)[
-		(show: ?sofa)
+	  (show: ?sofa)
 	]
-]
-(else:)[
+  ]
+  (else:)[
 	(if: $inventory contains &quot;firewood&quot;)[
-		(show: ?light_fire)
+	  (show: ?light_fire)
 	]
-]
-}</tw-passagedata><tw-passagedata pid="9" name="The Kitchen" tags="" position="337,1089" size="100,100">[[Go to the living room-&gt;The Living Room]]
+  ]
+}</tw-passagedata><tw-passagedata pid="9" name="The Kitchen" tags="" position="325,1090" size="100,100">[[Go to the living room-&gt;The Living Room]]
 
 [[Go downstairs-&gt;The Basement]]
 
-[[Enter the closet-&gt;The Broom Closet]]</tw-passagedata><tw-passagedata pid="10" name="The Bedroom" tags="" position="487,1089" size="100,100">[[Sleep on the bed-&gt;Sleep]]
+[[Enter the closet-&gt;The Broom Closet]]</tw-passagedata><tw-passagedata pid="10" name="The Bedroom" tags="" position="487,1089" size="100,100">The main bedroom is large and rustic, mainly containing a large double bed with heavy blankets and pillows. The rest of the furniture of the place is a wide cupboard, a wardrobe against the wall and a coat rack with nothing on it.
+
+At the wall opposite to the entrance door there is another door, likely a bathroom.
+
+[[Sleep on the bed-&gt;Sleep (Bedroom)]]
 
 [[Go in the bathroom-&gt;The Bathroom]]
 
-[[Go downstairs-&gt;The Living Room]]</tw-passagedata><tw-passagedata pid="11" name="The Bathroom" tags="" position="487,1239" size="100,100">[[Go back out.-&gt;The Bedroom]]</tw-passagedata><tw-passagedata pid="12" name="The Basement" tags="" position="222,1236" size="100,100">|firewood&gt;[Under the stairs sits a pile of chopped firewood].
+[[Go downstairs-&gt;The Living Room]]</tw-passagedata><tw-passagedata pid="11" name="The Bathroom" tags="" position="487,1239" size="100,100">The bathroom is surprisingly luxurious for a cabin in the middle of the woods, entirely decorated with tiles, furry carpets by the bathtub and the toilet, and a vanity with a large mirror. (if: $tasks_todo contains &quot;clean bathtub&quot;)[The bottom of the bathtub is coated in a noticeable layer of grime]
+
+[[Go back out.-&gt;The Bedroom]]
+
+|clean_tub)[{
+  (link: &quot;Clean the Bathtub&quot;)[
+	(set: $tasks_todo to $it - (a:&quot;clean bathtub&quot;))
+	(set: $action_history to it + (a: &quot;You have cleaned the bathtub&quot;))
+	(display: Sidebar)
+	(show: ?bath)
+	(replace: ?clean_tub)[]
+  ]
+}]
+
+|bath)[[[Fill the Bathtub-&gt;Bath]]]
+
+{
+(if: not $tasks_todo contains &quot;clean bathtub&quot;)[
+	(show: ?bath)
+]
+(else:)[
+	(if: $inventory contains &quot;bucket&quot;)[
+		(show: ?clean_tub)
+	]
+]
+}</tw-passagedata><tw-passagedata pid="12" name="The Basement" tags="" position="222,1236" size="100,100">|firewood&gt;[Under the stairs sits a pile of chopped firewood].
 
 [[Go back upstairs-&gt;The Kitchen]]
 {
@@ -136,7 +175,10 @@ Be well,
 		(display: &quot;Sidebar&quot;)
 	]
 ]
-}</tw-passagedata><tw-passagedata pid="13" name="The Broom Closet" tags="" position="367,1239" size="100,100">{
+}</tw-passagedata><tw-passagedata pid="13" name="The Broom Closet" tags="" position="367,1239" size="100,100">The broom closet is hardly an interesting place, barely lit by a flickering lightbulb dangling on a cord... There are shelves on the wall opposite to the door, where cleaning tools are supposed to be.
+
+|duster&gt;[There is a duster on the top shelf.] |bucket&gt;[There is a bucket on the lower shelf.] |broom&gt;[There is a broom resting against the wall.]
+{
 (if: (count: (history:), &quot;The Broom Closet&quot;) &lt; 2)[
 [[Leave-&gt;The Kitchen]]
 ]
@@ -161,7 +203,15 @@ Be well,
 		(display: &quot;Sidebar&quot;)
 	]
 ]
-}</tw-passagedata><tw-passagedata pid="14" name="Sleep" tags="" position="701,925" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="15" name="Out of the Closet" tags="ending" position="367,1389" size="100,100">The door of the closet is somewhat stuck...
+
+(unless: $inventory contains &quot;broom&quot;)[
+	(click: ?broom)[
+		(set: $inventory to it + (a: &quot;broom&quot;))
+		(set: $action_history to it + (a: &quot;You picked up the broom&quot;))
+		(display: &quot;Sidebar&quot;)
+	]
+]
+}</tw-passagedata><tw-passagedata pid="14" name="Out of the Closet" tags="ending" position="367,1389" size="100,100">The door of the closet is somewhat stuck...
 
 (link: &quot;Push.&quot;)[====
 
@@ -183,20 +233,18 @@ You open your mouth to comment with confusion at your sudden change of clothes, 
 
 Your head is filled with thoughts you didn&#39;t want to think, but you were helpless against them. You just followed the man upstairs to the bedroom, and hoped that the carpet was not going to feel too rash against your dainty sissy knees...
 
-&lt;strong&gt;Congratulations! You&#39;ve succcessfully came out of the broom closet and bloomed into a lovely sissy, submitting yourself to the will of the master of the house!&lt;/strong&gt;</tw-passagedata><tw-passagedata pid="16" name="Inventory" tags="" position="717,194" size="100,100">&lt;ul id=&quot;inventory&quot;&gt;
+&lt;strong&gt;Congratulations! You&#39;ve succcessfully came out of the broom closet and bloomed into a lovely sissy, submitting yourself to the will of the master of the house!&lt;/strong&gt;</tw-passagedata><tw-passagedata pid="15" name="Inventory" tags="" position="717,194" size="100,100">&lt;ul id=&quot;inventory&quot;&gt;
 {
 	(if: $inventory contains &quot;coat&quot;)[&lt;li&gt;Fur Coat&lt;/li&gt;]
-}
-{
 	(if: $inventory contains &quot;bucket&quot;)[&lt;li&gt;Bucket&lt;/li&gt;]
-}
-{
 	(if: $inventory contains &quot;duster&quot;)[&lt;li&gt;Duster&lt;/li&gt;]
-}
-{
+	(if: $inventory contains &quot;broom&quot;)[&lt;li&gt;Broom&lt;/li&gt;]
 	(if: $inventory contains &quot;firewood&quot;)[&lt;li&gt;Firewood&lt;/li&gt;]
+	(if: $inventory contains &quot;chicken&quot;)[&lt;li&gt;Chicken&lt;/li&gt;]
+	(if: $inventory contains &quot;potatoes&quot;)[&lt;li&gt;Potatoes&lt;/li&gt;]
+	(if: $inventory contains &quot;cookie mix&quot;)[&lt;li&gt;Cookie Mix&lt;/li&gt;]
 }
-&lt;/ul&gt;</tw-passagedata><tw-passagedata pid="17" name="Sidebar" tags="footer" position="567,191" size="100,100">(replace: ?sidebar)[
+&lt;/ul&gt;</tw-passagedata><tw-passagedata pid="16" name="Sidebar" tags="footer" position="567,191" size="100,100">(replace: ?sidebar)[
 &lt;h2&gt;Inventory&lt;/h2&gt;
 (display: &quot;Inventory&quot;)
 
@@ -204,15 +252,140 @@ Your head is filled with thoughts you didn&#39;t want to think, but you were hel
 &lt;ul id=&quot;history&quot;&gt;
 (for: each _line, ...$action_history)[&lt;li&gt;_line&lt;/li&gt;]
 &lt;/ul&gt;
-]</tw-passagedata><tw-passagedata pid="18" name="Startup" tags="startup" position="244,189" size="100,100">{
-(set: $inventory to (a:))
-(set: $action_history to (a:))
+]</tw-passagedata><tw-passagedata pid="17" name="Startup" tags="startup" position="243,187" size="100,100">{
+  (set: $inventory to (a:))
+  (set: $action_history to (a:))
 
-(set: $lit_fireplace to false)
-(set: $dinner_ready to false)
-(set: $cookes_ready to false)
-(set: $dirty_places to (a:) )
-(set: $bathtub_clean to false )
+  (set: $tasks_todo to (a:
+  &quot;sweep living room&quot;, &quot;sweep kitchen&quot;, &quot;sweep porch&quot;, &quot;sweep bedroom&quot;, &quot;sweep basement&quot;,
+  &quot;dust living room&quot;, &quot;dust bedroom&quot;, &quot;dust basement&quot;,
+  &quot;clean bathtub&quot;,
+  &quot;light fireplace&quot;,
+  &quot;cook&quot;) )
+  (set: $total_tasks_todo to $tasks_todo&#39;s length)
+}</tw-passagedata><tw-passagedata pid="18" name="Bath" tags="" position="698,1230" size="100,100">The tub quickly fills with clear water, which aqcuires a rosy and bubbly tone... odd, did you put some product in the water? Not that you remember...
+
+It looks so nice and inviting, and HOT, too... the steaming water beckons you in. You feel like you could just get naked, get in and
+
+(link:&quot;Actually, go elsewhere&quot;)[This is very convenient, isn&#39;t it? A hot tub or perfumed water, and yet you can&#39;t remember opening the hot water tap or even seeing a bottle of bath bubbles...
+(replace: ?bathe)[[[You really need to relax...-&gt;A Magic Bath]]]
+
+(link:&quot;Yes, this is a weird hot bath...&quot;)[...And yet, you seem pulled in by the steam, irresitibly called in by the relaxing aroma...
+(replace: ?bathe)[[[Resistance is futile; Just get in...-&gt;A Magic Bath]]]]]
+
+|bathe&gt;[[[Enter and relax-&gt;A Magic Bath]]]</tw-passagedata><tw-passagedata pid="19" name="A Magic Bath" tags="ending" position="598,1379" size="100,100">You enter the bath, feeling the relaxign properties of hot water and fancy bath bubbles almost immediately. So relaxing you could even...
+
+(link: &quot;Fall asleep.&quot;)[====
+
+You wake up still in the bath, hearing sounds of movement coming from the outside. Oh, shit, you fell asleep for how long in this bath? And now someone was coming in and about to find you naked in their bathtub. You need to get up, quick!
+
+(link: &quot;Get up.&quot;)[====
+
+Lifting your body off the water, you realize it feels lighter. The water drips off it in unfamiliar ways, and when you look at yourself, the shock is so great you fall back in the soapy water.
+
+&lt;img src=&quot;img/house/bathtub.jpg&quot;&gt;&lt;/img&gt;
+
+The door opens and a bearded men in robes shows up, smiling as he sees you, naked under the suds. Before you say anything, he starts to speak.
+
+&quot;No need to explain anything... this is just a consequence of intruding in a magician&#39;s house! But don&#39;t worry, I&#39;m sure you can already think of ways you can compensate me for that, don&#39;t you?&quot;
+
+You wanted to apologize, but your mind felt light and invaded with new thoughts. Instead of a blank face of shock and shame at being caught in such situation, your mouth widened in a smile, and you relaxed into the water further, one hand coming out making a waving motion.
+
+&quot;Are you coming in or what, honey?&quot; Your new voice asks, and as the man starts to shed off his robes, you realize this bath was letting you clean of more than just sweat and dead cells, as your identity dissolved in the hot perfumed water...
+
+&lt;strong&gt;Congratulations! You&#39;ve succcessfully cleaned the bathtub and took a nice relaxing bath to get your sore muscles ready to submit yourself to the will of the master of the house!&lt;/strong&gt;</tw-passagedata><tw-passagedata pid="20" name="Sleep (Living Room)" tags="" position="645,936" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="21" name="Sleep (Bedroom)" tags="" position="959,1100" size="100,100">The bed is made, so why not sleep? You certainly are tired from all that wandering in the snow, and surely the owner of the house will not mind if you just take a quick nap to recharge your energies...
+
+{
+  (set: $tasks_done to $total_tasks_todo - $tasks_todo&#39;s length)
+
+  (if: $tasks_done is 0)[
+  	[[...Wake up!-&gt;In The Crib]]
+  ]
+  (else-if: $tasks_done is $total_tasks_todo)[
+    (if: $cooked_place is &quot;chicken&quot;)[
+	  [[...Wake up!-&gt;The Good Wife]]
+	]
+	(else:)[
+	  [[...Wake up!-&gt;The Sweet Wife]]
+	]
+  ]
+  (else:)[
+    [[...Wake up!-&gt;Work To Do]]
+  ]
+}</tw-passagedata><tw-passagedata pid="22" name="In The Crib" tags="ending" position="801,1349" size="100,100">You wake up still in bed with the sound of steps coming up the stairs. As you recover conscience, you feel the bed isn&#39;t as comfy as you reember lying on it...
+
+(link: &quot;Get up.&quot;)[====
+
+You lift your body, with some help from the bars around you, hearing an odd crinkling sound as you move in confusion...
+
+...Wait, bars? Why are there pink bars around this bed, which has, in fact, seemingly become a lot smaller?!
+
+(link: &quot;Look at yourself.&quot;)[====
+
+You do not recall undressing yourself before going to be, and you certainly do not recall dressing up in a dress and diapers, or putting a pacifier in your mouth, and yet...
+
+&lt;img src=&quot;img/house/baby.png&quot;&gt;&lt;/img&gt;
+
+The door opens and a bearded men in robes shows up, smiling as he sees you, look with perplexed confusion.
+
+&quot;Well, you did quite a poor job as a housekeeper, haven&#39;t you? Not even a single task was done... I can only suppose the house was kind but wicked enough to attribute your uselesness to inability, and not lack of will, you know?&quot;
+
+You look at him, confused, your slack jaw slightly open but the pacifier still remains. Something in your face clearly comunicated an idiot sense of ignorance, because he sighed and continued to explain further.
+
+&quot;How can I say it in a way you may understand... if you expect to just make yourself at home and sleep without doing your part of the work, you might as well just be a big baby with no obligations, you see?&quot;
+
+He laughs, coming closer and patting you on the head.
+
+&quot;Well, honey, don&#39;t you worry. I&#39;m sure a suitable mom will come along to be your caretaker. Maybe I need to take a longer journey, since they will have quite the load of work with all the house chores and also you around, right?&quot;
+
+As he softly laughs and pats you on the head again, you feel your intelligence slipping away, and realize that maybe you just need a longer nap, too...
+
+&lt;strong&gt;Congratulations! You&#39;ve done absolutely nothing useful, and now you&#39;ll never have to worry about that for a long long time, as you&#39;ve been mercifully adopted by the master of the house!&lt;/strong&gt;</tw-passagedata><tw-passagedata pid="23" name="The Good Wife" tags="ending" position="918,1434" size="100,100">&lt;em&gt;Content pending...&lt;/em&gt;</tw-passagedata><tw-passagedata pid="24" name="Work To Do" tags="ending" position="1145,1386" size="100,100">You wake up with a startle, with the sound of steps coming up the stairs. You get up quickly, not wanting to be caught sleeping by the owner of the bed... but as you hit the floor you suddenly lose your balance.
+
+(link: &quot;Hold on to something.&quot;)[====
+
+You support yourself on the near door frame, leaning against it and regaining balance... something is off about your feet, as if your ankles were inches away from the floor.
+
+As you look down your realize what&#39;s wrong: high heeled boots! You do not remember ever wearing them, or ever wearing such kind of shoes.
+
+You are taken by the eerie realization that maybe your footwear is not the only thing that&#39;s off about you at the moment, but you fear finding out what else might be...
+
+(link: &quot;Look at yourself.&quot;)[====
+
+As you give your own body a wider look, you realize the clothes you are wearing now are the black and white frilled uniform that certainly characterizes a maid, and which just perfectly contrast your tan skin...
+
+&lt;img src=&quot;img/house/maid.jpg&quot;&gt;&lt;/img&gt;
+
+The door opens and a bearded men in robes shows up, smiling as he sees you. Before you even speak up, he interrupts, guessing that what&#39;s coming up is an apology.
+
+&quot;There is no need to apologize, my dear! I realize the work is not done, but what bad is there in taking a little break? After all, you are all ready to get right back to work, aren&#39;t you?&quot;
+
+You stop yourself before retorting, or even wondering aloud what did this all mean... you felt your thoughts reshaping and your attitude relaxing as you realized he was right, and you sure were lucky that he did not mind your little break.
+
+&quot;Go and get yourself finished, darling. After all the chores are done, the house is clean, the fireplace is lit and dinner is ready, you might as well perform some extra tasks for me...&quot;
+
+He finishes his sentence with a wry smile, and you also smile back, blushing gracefully and answering silently with a wink before you head downstairs to continue your hard work.
+
+&lt;strong&gt;Congratulations! You&#39;ve worked well and you may still continue to do so as a servant of the master of the house!&lt;/strong&gt;</tw-passagedata><tw-passagedata pid="25" name="The Sweet Wife" tags="ending" position="1023,1316" size="100,100">&lt;em&gt;Content pending...&lt;/em&gt;</tw-passagedata><tw-passagedata pid="26" name="Template: Task To Do" tags="template" position="250,38" size="100,100">&lt;!-- Template 
+
+&lt;!-- The task-performing link --&gt;
+|task_tag)[{
+  (link: &quot;Do Task&quot;)[
+	(set: $tasks_todo to $it - (a:&quot;task description&quot;))
+	(set: $action_history to it + (a: &quot;You have performed the task&quot;))
+	(display: Sidebar)
+	&lt;!-- Transform the page further here, such as showing new links that were previously invisible --&gt;
+	(replace: ?task_tag)[]
+  ]
+}]
+
+&lt;!-- Showing the task-performing link --&gt;
+{
+  (if: $tasks_todo contains &quot;task description&quot;)[
+    (if: $inventory contains &quot;required item&quot;)[
+      (show: ?task_tag)
+	]
+  ]
 }</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
