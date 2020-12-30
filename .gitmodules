@@ -1,0 +1,4 @@
+[submodule "alpha/housesitter"]
+	path = alpha/housesitter
+	url = https://github.com/leila-stoat/house-sitter.git
+	branch = alpha
