@@ -2,3 +2,15 @@
 	path = alpha/housesitter
 	url = https://github.com/leila-stoat/house-sitter.git
 	branch = alpha
+[submodule "alpha/pantyraider"]
+	path = alpha/pantyraider
+	url = https://github.com/leila-stoat/the-panty-raider.git
+	branch = alpha
+[submodule "alpha/escape"]
+	path = alpha/escape
+	url = https://github.com/leila-stoat/can-you-escape.git
+	branch = alpha
+[submodule "if/newjob"]
+	path = if/newjob
+	url = https://github.com/leila-stoat/new-job.git
+	branch = master
