@@ -1,7 +1,3 @@
-[submodule "alpha/housesitter"]
-	path = alpha/housesitter
-	url = https://github.com/leila-stoat/house-sitter.git
-	branch = alpha
 [submodule "alpha/pantyraider"]
 	path = alpha/pantyraider
 	url = https://github.com/leila-stoat/the-panty-raider.git
@@ -14,3 +10,7 @@
 	path = if/newjob
 	url = https://github.com/leila-stoat/new-job.git
 	branch = master
+[submodule "beta/housesitter"]
+	path = beta/housesitter
+	url = https://github.com/leila-stoat/house-sitter.git
+	branch = beta
