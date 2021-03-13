@@ -10,7 +10,7 @@
 	path = if/newjob
 	url = https://github.com/leila-stoat/new-job.git
 	branch = master
-[submodule "beta/housesitter"]
-	path = beta/housesitter
+[submodule "housesitter"]
+	path = if/housesitter
 	url = https://github.com/leila-stoat/house-sitter.git
-	branch = beta
+	branch = master
